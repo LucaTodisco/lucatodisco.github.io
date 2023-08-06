@@ -1,0 +1,60 @@
+/* Font "Supercell-Magic" */
+@font-face {
+  font-family: "Supercell-Magic";
+  src: url("font/Supercell-Magic.ttf"); /* Assicurati di correggere il percorso del font se necessario */
+  /* Altri formati del font se lo desideri (ad es. .woff2) */
+}
+
+/* Stile generale della pagina */
+body {
+  text-align: center;
+  font-family: "Supercell-Magic", Arial, sans-serif;
+  font-size: 40px; /* Imposta la grandezza del testo a 16px (o il valore desiderato) */
+  margin: 20px;
+}
+
+/* Stile del titolo */
+h1 {
+  font-family: "Supercell-Magic", Arial, sans-serif;
+  font-size: 50px; /* Imposta la grandezza del testo a 16px (o il valore desiderato) */
+  margin-bottom: 20px;
+}
+
+/* Stile generale del contenitore delle immagini delle lettere */
+#word-images {
+  display: flex;
+  align-items: center; /* Allinea verticalmente le immagini delle lettere */
+  justify-content: center; /* Allinea orizzontalmente le immagini delle lettere */
+  margin-bottom: 20px;
+}
+
+/* Stile delle immagini delle lettere */
+.letter-image {
+  cursor: pointer;
+  width: 60px;
+  height: 60px;
+  margin: 2px; /* Spazio tra le lettere */
+  font-family: "Supercell-Magic", Arial, sans-serif;
+}
+
+/* Classe per nascondere le lettere */
+.hidden-letter {
+  filter: blur(2px); /* Puoi usare qualsiasi altro effetto per nascondere le lettere */
+}
+
+/* Stile del bottone "Nuova Parola" */
+#new-word-button,
+#reveal-button,
+#toggle-language-button {
+  font-family: "Supercell-Magic", Arial, sans-serif;
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+/* Stile per lo spazio tra le parole */
+.word-space {
+  margin-right: 50px; /* Spazio tra le parole */
+}
