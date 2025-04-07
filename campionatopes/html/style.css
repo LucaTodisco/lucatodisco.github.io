@@ -156,6 +156,15 @@ button:hover {
   background-color: #0056b3;
 }
 
+/* Stile per quando i dettagli sono visibili */
+.partita.aperta .dettagli {
+  display: block; /* I dettagli sono visibili */
+}
+
+.dettagli {
+  display: none; /* I dettagli sono nascosti inizialmente */
+}
+
 /* Responsività */
 @media (max-width: 768px) {
   .divise {
