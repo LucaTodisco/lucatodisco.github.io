@@ -34,7 +34,7 @@ const partite = [
     punteggioCasa: 1,
     punteggioOspite: 1,
     marcatoriCasa: ["Chris 67'"],
-    marcatoriOspiti: ["57' Autorete"],
+    marcatoriOspite: ["57' Autorete"],  // Correzione da marcatoriOspiti a marcatoriOspite
     logoCasa: "../img/fiorentina-logo.png",
     logoOspite: "../img/reggina-logo.png",
     magliaCasa: "../img/kits/stagione2/fiorentina-home.png",
