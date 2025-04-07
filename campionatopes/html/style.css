@@ -32,6 +32,14 @@ h1 {
   background: #f0f0f0;
   padding: 8px;
   border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-squadra {
+  width: 40px;
+  height: auto;
 }
 
 .dettagli {
@@ -43,6 +51,25 @@ h1 {
   display: block;
 }
 
+/* Sezione marcatori */
+.marcatori {
+  display: flex;
+  justify-content: space-between;
+}
+
+.marcatore {
+  width: 45%;
+}
+
+.marcatore.casa {
+  text-align: left;
+}
+
+.marcatore.ospite {
+  text-align: right;
+}
+
+/* Immagini delle divise */
 .divise {
   display: flex;
   align-items: center;
