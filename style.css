@@ -1,0 +1,62 @@
+/* Impostazioni di base */
+body {
+  font-family: "Georgia", "Times New Roman", serif;
+  background-color: #f8f9fa;
+  color: #202122;
+  margin: 0 auto;
+  max-width: 1000px;
+  padding: 20px;
+  line-height: 1.6;
+}
+
+/* Titolo principale */
+h1 {
+  color: #000;
+  border-bottom: 1px solid #a2a9b1;
+  padding-bottom: 4px;
+  margin-top: 2em;
+}
+
+/* Sezione partite cliccabili */
+.partita {
+  margin-bottom: 1em;
+  border: 1px solid #ccc;
+  background: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.titolo-partita {
+  font-weight: bold;
+  background: #f0f0f0;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.dettagli {
+  display: none;
+  padding-top: 10px;
+}
+
+.partita.aperta .dettagli {
+  display: block;
+}
+
+.divise {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin: 10px 0;
+}
+
+.divisa {
+  width: 80px;
+  height: auto;
+}
+
+.pallone {
+  width: 40px;
+  height: auto;
+}
