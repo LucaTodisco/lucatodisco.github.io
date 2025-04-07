@@ -10,51 +10,9 @@
 
   <h1>Serie A - Stagione 2</h1>
   <h2>1ª Giornata</h2>
-  <div class="partita" onclick="toggleDetails(this)">
-    <div class="titolo-partita">
-      <img src="../img/bari-logo.png" alt="Logo Bari" class="logo-squadra">
-      Bari 0 - 1 Parma
-      <img src="../img/parma-logo.png" alt="Logo Parma" class="logo-squadra">
-    </div>
-    <div class="dettagli">
-      <div class="marcatori">
-        <div class="marcatore casa">
-        </div>
-        <div class="marcatore ospite">
-          <p>53' David</p>
-        </div>
-      </div>
-      <div class="divise">
-        <img src="../img/kits/stagione2/bari-home.png" alt="Maglia Bari" class="divisa">
-        <img src="../img/balls/stagione2/seriea-summer.png" alt="Pallone" class="pallone">
-        <img src="../img/kits/stagione2/parma-home.png" alt="Maglia Parma" class="divisa">
-      </div>
-      <p>Note: Partita giocata allo Stadio San Nicola.</p>
-    </div>
-  </div>
 
-  <div class="partita" onclick="toggleDetails(this)">
-    <div class="titolo-partita">
-      <img src="../img/cagliari-logo.png" alt="Logo Cagliari" class="logo-squadra">
-      Cagliari 1 - 1 Napoli
-      <img src="../img/napoli-logo.png" alt="Logo Napoli" class="logo-squadra">
-    </div>
-    <div class="dettagli">
-      <div class="marcatori">
-        <div class="marcatore casa">
-          <p>Fabio 5'</p>
-        </div>
-        <div class="marcatore ospite">
-          <p>90' Gilberto</p>
-        </div>
-      </div>
-      <div class="divise">
-        <img src="../img/kits/stagione2/cagliari-home.png" alt="Maglia Cagliari" class="divisa">
-        <img src="../img/balls/stagione2/seriea-summer.png" alt="Pallone" class="pallone">
-        <img src="../img/kits/stagione2/napoli-away.png" alt="Maglia Napoli" class="divisa">
-      </div>
-    </div>
-  </div>
+  <!-- Contenitore per le partite, che verranno generate dinamicamente -->
+  <div id="calendario-partite"></div>
 
   <script src="script.js"></script>
 </body>
