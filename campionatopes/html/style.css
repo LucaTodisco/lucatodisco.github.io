@@ -6,12 +6,6 @@ body {
   color: #333;
 }
 
-h1, h2 {
-  text-align: center;
-  margin-top: 20px;
-  color: #333;
-}
-
 #calendario-partite {
   max-width: 1000px;
   margin: 0 auto;
@@ -19,62 +13,61 @@ h1, h2 {
 }
 
 .partita {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  border-radius: 0;
   margin-bottom: 20px;
-  cursor: pointer;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  border-radius: 0;
+}
+
+.titolo-partita {
+  display: flex;
   height: 100px;
+  cursor: pointer;
 }
 
 .logo-container {
-  background-color: red;
+  background-color: white;
+  width: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100px;
-  height: 100%;
 }
 
 .logo-container img {
   background-color: white;
   width: 60px;
   height: 60px;
-  padding: 5px;
   object-fit: contain;
+  padding: 5px;
 }
 
 .nome-squadra {
-  background-color: #0044FF;
+  background-color: #171D8D;
   color: white;
+  width: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 200px;
-  height: 100%;
   font-size: 1.2em;
   font-weight: bold;
 }
 
 .punteggio {
   background-color: white;
-  color: #0044FF;
+  color: #171D8D;
+  width: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100px;
-  height: 100%;
   font-size: 1.5em;
   font-weight: bold;
 }
 
 .dettagli {
   display: none;
-  padding: 10px;
-  background-color: #fff;
+  background-color: white;
+  padding: 15px;
+  border-top: 1px solid #ddd;
 }
 
 .partita.aperta .dettagli {
@@ -85,6 +78,7 @@ h1, h2 {
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
+  gap: 20px;
 }
 
 .marcatore {
@@ -94,12 +88,12 @@ h1, h2 {
 
 .marcatore.casa {
   text-align: left;
-  color: #007BFF;
+  color: #171D8D;
 }
 
 .marcatore.ospite {
   text-align: right;
-  color: #FF4500;
+  color: #171D8D;
 }
 
 .divise {
@@ -120,4 +114,5 @@ h1, h2 {
   margin-top: 10px;
   font-style: italic;
   color: #666;
+  text-align: center;
 }
