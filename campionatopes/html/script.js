@@ -11,7 +11,7 @@ const partite = [
     logoOspite: "../img/parma-logo.png",
     magliaCasa: "../img/kits/stagione2/bari-home.png",
     magliaOspite: "../img/kits/stagione2/parma-home.png",
-    pallone: "../img/balls/stagione2/seriea-summer.png",
+    pallone: "../img/balls/stagione2/roteiro-blue.png",
     note: "Partita giocata allo Stadio San Nicola."
   },
   {
@@ -25,7 +25,7 @@ const partite = [
     logoOspite: "../img/napoli-logo.png",
     magliaCasa: "../img/kits/stagione2/cagliari-home.png",
     magliaOspite: "../img/kits/stagione2/napoli-away.png",
-    pallone: "../img/balls/stagione2/seriea-summer.png",
+    pallone: "../img/balls/stagione2/roteiro-blue.png",
     note: "Partita giocata allo Stadio Sant'Elia."
   },
   {
@@ -39,7 +39,7 @@ const partite = [
     logoOspite: "../img/reggina-logo.png",
     magliaCasa: "../img/kits/stagione2/fiorentina-home.png",
     magliaOspite: "../img/kits/stagione2/reggina-away.png",
-    pallone: "../img/balls/stagione2/seriea-summer.png",
+    pallone: "../img/balls/stagione2/roteiro-blue.png",
     note: "Partita giocata allo stadio Artemio Franchi."
   }
 ];
