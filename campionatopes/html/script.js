@@ -54,36 +54,26 @@ function generaPartite() {
     partitaDiv.setAttribute('onclick', 'toggleDetails(this)');
 
     partitaDiv.innerHTML = `
-      <div class="titolo-partita">
-        <div class="logo-wrapper">
-          <img src="${partita.logoCasa}" alt="Logo ${partita.squadraCasa}" class="logo-squadra">
-        </div>
-        <div class="info-partita">
-          <span class="nome-squadra">${partita.squadraCasa}</span>
-          <span class="punteggio">${partita.punteggioCasa} - ${partita.punteggioOspite}</span>
-          <span class="nome-squadra">${partita.squadraOspite}</span>
-        </div>
-        <div class="logo-wrapper">
-          <img src="${partita.logoOspite}" alt="Logo ${partita.squadraOspite}" class="logo-squadra">
-        </div>
-      </div>
+      <div class="logo-container"><img src="${partita.logoCasa}" alt="Logo ${partita.squadraCasa}"></div>
+      <div class="nome-squadra">${partita.squadraCasa}</div>
+      <div class="punteggio">${partita.punteggioCasa} - ${partita.punteggioOspite}</div>
+      <div class="nome-squadra">${partita.squadraOspite}</div>
+      <div class="logo-container"><img src="${partita.logoOspite}" alt="Logo ${partita.squadraOspite}"></div>
       <div class="dettagli">
         <div class="marcatori">
           <div class="marcatore casa">
-            <strong>Marcatori Casa:</strong>
             <p>${partita.marcatoriCasa.join(", ")}</p>
           </div>
           <div class="marcatore ospite">
-            <strong>Marcatori Ospite:</strong>
             <p>${partita.marcatoriOspite.join(", ")}</p>
           </div>
         </div>
         <div class="divise">
-          <img src="${partita.magliaCasa}" alt="Maglia ${partita.squadraCasa}" class="divisa">
-          <img src="${partita.pallone}" alt="Pallone" class="pallone">
-          <img src="${partita.magliaOspite}" alt="Maglia ${partita.squadraOspite}" class="divisa">
+          <img src="${partita.magliaCasa}" class="divisa">
+          <img src="${partita.pallone}" class="pallone">
+          <img src="${partita.magliaOspite}" class="divisa">
         </div>
-        <p class="note">Note: ${partita.note}</p>
+        <p class="note">${partita.note}</p>
       </div>
     `;
 
@@ -91,11 +81,8 @@ function generaPartite() {
   });
 }
 
-
-// Funzione per aprire/chiudere i dettagli della partita
 function toggleDetails(element) {
   element.classList.toggle("aperta");
 }
 
-// Genera il calendario all'avvio della pagina
 document.addEventListener('DOMContentLoaded', generaPartite);
