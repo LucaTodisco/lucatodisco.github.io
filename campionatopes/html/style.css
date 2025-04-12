@@ -31,40 +31,65 @@ h2 {
 
 /* Stile di base per ogni partita */
 .partita {
-  background-color: #fff;
-  border: 1px solid #ddd;
+  background-color: #ffffff;
+  border: 2px solid #ccc;
   padding: 15px;
   margin-bottom: 20px;
+  border-radius: 0; /* Rettangolare netto */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   cursor: pointer;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 }
 
-/* Effetto al passaggio del mouse */
 .partita:hover {
   transform: scale(1.02);
 }
 
-/* Titolo della partita con i loghi */
+/* Titolo della partita con loghi e punteggio */
 .titolo-partita {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 1.2em;
-  font-weight: bold;
-  color: #333;
+  background-color: #e0f0ff;
+  padding: 10px 15px;
 }
 
-/* Loghi delle squadre */
+.logo-wrapper {
+  background-color: white;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
 .logo-squadra {
   width: 40px;
   height: 40px;
   object-fit: contain;
-  margin: 0 10px;
 }
 
-/* Dettagli della partita (inclusi marcatori, divise e note) */
+/* Informazioni centrali: squadre e punteggio */
+.info-partita {
+  text-align: center;
+  flex-grow: 1;
+}
+
+.nome-squadra {
+  margin: 0 10px;
+  font-weight: bold;
+  color: #003366;
+}
+
+.punteggio {
+  background-color: white;
+  color: #003366;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 0 10px;
+  display: inline-block;
+}
+
+/* Dettagli partita */
 .dettagli {
   display: none;
   margin-top: 15px;
@@ -72,14 +97,25 @@ h2 {
   color: #555;
 }
 
-/* Quando la partita è cliccata, mostra i dettagli */
 .partita.aperta .dettagli {
   display: block;
 }
 
 /* Sezione marcatori */
+.marcatori {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
 .marcatore {
-  margin-bottom: 10px;
+  width: 48%;
+}
+
+.marcatore strong {
+  display: block;
+  margin-bottom: 5px;
 }
 
 .marcatore p {
@@ -87,7 +123,17 @@ h2 {
   font-size: 1em;
 }
 
-/* Divise delle squadre */
+.marcatore.casa p {
+  color: #007BFF;
+  text-align: left;
+}
+
+.marcatore.ospite p {
+  color: #FF4500;
+  text-align: right;
+}
+
+/* Divise e pallone */
 .divise {
   display: flex;
   justify-content: space-between;
@@ -99,8 +145,9 @@ h2 {
   width: 80px;
   height: 80px;
   object-fit: contain;
-  margin: 0 15px;
   border-radius: 5px;
+  background-color: #fff;
+  padding: 5px;
 }
 
 .pallone {
@@ -108,6 +155,9 @@ h2 {
   height: 50px;
   object-fit: contain;
   margin: 0 20px;
+  background-color: #fff;
+  padding: 5px;
+  border-radius: 50%;
 }
 
 /* Note della partita */
@@ -117,30 +167,7 @@ h2 {
   color: #777;
 }
 
-/* Stile per la visualizzazione delle partite */
-.partita {
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  padding: 15px;
-  margin-bottom: 15px;
-  transition: transform 0.3s ease;
-}
-
-.partita:hover {
-  transform: scale(1.05);
-}
-
-/* Sezione dei marcatori con colori per casa e ospite */
-.marcatore.casa p {
-  color: #007BFF;
-}
-
-.marcatore.ospite p {
-  color: #FF4500;
-}
-
-/* Stile per i pulsanti (se presenti) */
+/* Pulsanti (se presenti) */
 button {
   background-color: #007BFF;
   color: white;
@@ -156,23 +183,29 @@ button:hover {
   background-color: #0056b3;
 }
 
-/* Stile per quando i dettagli sono visibili */
-.partita.aperta .dettagli {
-  display: block; /* I dettagli sono visibili */
-}
-
-.dettagli {
-  display: none; /* I dettagli sono nascosti inizialmente */
-}
-
 /* Responsività */
 @media (max-width: 768px) {
   .divise {
     flex-direction: column;
     align-items: center;
   }
-  
-  .divisa, .pallone {
+
+  .divisa,
+  .pallone {
     margin: 10px 0;
+  }
+
+  .marcatori {
+    flex-direction: column;
+  }
+
+  .marcatore {
+    width: 100%;
+    text-align: center;
+  }
+
+  .marcatore.casa p,
+  .marcatore.ospite p {
+    text-align: center;
   }
 }
