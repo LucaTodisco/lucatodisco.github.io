@@ -1,4 +1,4 @@
-/* Importa i font personalizzati */
+/* === FONT === */
 @font-face {
   font-family: 'DINNextMedium';
   src: url('../fonts/DINNextW1G-Medium.otf') format('opentype');
@@ -8,7 +8,7 @@
   src: url('../fonts/DINNextW1G-Regular.otf') format('opentype');
 }
 
-/* Stili generali */
+/* === GENERALE === */
 body {
   font-family: 'DINNextRegular', Arial, sans-serif;
   margin: 0;
@@ -31,14 +31,13 @@ h2 {
   color: #666;
 }
 
-/* Contenitore partite */
 #calendario-partite {
   max-width: 900px;
   margin: 0 auto;
   padding: 20px;
 }
 
-/* Singola partita */
+/* === PARTITA === */
 .partita {
   background-color: white;
   margin-bottom: 25px;
@@ -47,7 +46,7 @@ h2 {
   border: none;
 }
 
-/* Riga del titolo della partita */
+/* === TITOLO PARTITA === */
 .titolo-partita {
   display: flex;
   width: 100%;
@@ -60,7 +59,6 @@ h2 {
   color: white;
 }
 
-/* Blocchi della partita */
 .logo-blocco {
   background-color: white;
   width: 80px;
@@ -79,7 +77,6 @@ h2 {
   object-fit: contain;
 }
 
-/* Blocchi per i nomi delle squadre */
 .nome-squadra {
   background-color: #171D8D;
   flex: 1;
@@ -88,9 +85,9 @@ h2 {
   justify-content: center;
   align-items: center;
   font-family: 'DINNextMedium', sans-serif;
+  color: white;
 }
 
-/* Blocco del punteggio */
 .punteggio {
   background-color: white;
   color: #171D8D;
@@ -103,25 +100,41 @@ h2 {
   align-items: center;
 }
 
-/* Dettagli della partita */
+/* === DETTAGLI PARTITA === */
 .dettagli {
-  display: none;
-  background-color: white;
-  padding: 15px;
-  font-size: 1em;
-  color: #333;
+  display: none; /* nascosto di default */
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
 }
 
-/* Quando visibile */
 .partita.aperta .dettagli {
-  display: block;
+  display: block; /* visibile solo quando "aperta" */
 }
 
-/* Marcatori */
+.dettagli::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(255,255,255,0.4);
+  z-index: 1;
+}
+
+.dettagli .overlay {
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 15px;
+  position: relative;
+  z-index: 2;
+}
+
+/* === MARCATORI === */
 .marcatori {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
+  position: relative;
+  z-index: 2;
 }
 
 .marcatore {
@@ -142,12 +155,14 @@ h2 {
   color: #171D8D;
 }
 
-/* Divise e pallone */
+/* === DIVISE E PALLONE === */
 .divise {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 15px 0;
+  position: relative;
+  z-index: 2;
 }
 
 .divisa {
@@ -163,14 +178,16 @@ h2 {
   object-fit: contain;
 }
 
-/* Note */
+/* === NOTE === */
 .note {
   font-style: italic;
-  color: #777;
+  color: #171D8D;
   text-align: center;
+  position: relative;
+  z-index: 2;
 }
 
-/* Responsività */
+/* === RESPONSIVO === */
 @media (max-width: 768px) {
   .titolo-partita {
     flex-wrap: wrap;
