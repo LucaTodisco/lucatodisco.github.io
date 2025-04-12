@@ -51,14 +51,15 @@ function generaPartite() {
   partite.forEach(partita => {
     const partitaDiv = document.createElement('div');
     partitaDiv.classList.add('partita');
-    partitaDiv.setAttribute('onclick', 'toggleDetails(this)');
 
     partitaDiv.innerHTML = `
-      <div class="logo-container"><img src="${partita.logoCasa}" alt="Logo ${partita.squadraCasa}"></div>
-      <div class="nome-squadra">${partita.squadraCasa}</div>
-      <div class="punteggio">${partita.punteggioCasa} - ${partita.punteggioOspite}</div>
-      <div class="nome-squadra">${partita.squadraOspite}</div>
-      <div class="logo-container"><img src="${partita.logoOspite}" alt="Logo ${partita.squadraOspite}"></div>
+      <div class="titolo-partita" onclick="toggleDetails(this.parentElement)">
+        <div class="logo-container"><img src="${partita.logoCasa}" alt="Logo ${partita.squadraCasa}"></div>
+        <div class="nome-squadra">${partita.squadraCasa}</div>
+        <div class="punteggio">${partita.punteggioCasa} - ${partita.punteggioOspite}</div>
+        <div class="nome-squadra">${partita.squadraOspite}</div>
+        <div class="logo-container"><img src="${partita.logoOspite}" alt="Logo ${partita.squadraOspite}"></div>
+      </div>
       <div class="dettagli">
         <div class="marcatori">
           <div class="marcatore casa">
