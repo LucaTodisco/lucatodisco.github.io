@@ -51,30 +51,31 @@ function generaPartite() {
   partite.forEach(partita => {
     const partitaDiv = document.createElement('div');
     partitaDiv.classList.add('partita');
+    partitaDiv.setAttribute('onclick', 'toggleDetails(this)');
 
     partitaDiv.innerHTML = `
-      <div class="titolo-partita" onclick="toggleDetails(this.parentElement)">
-        <div class="logo-container"><img src="${partita.logoCasa}" alt="Logo ${partita.squadraCasa}"></div>
+      <div class="titolo-partita">
+        <div class="logo-blocco">
+          <img src="${partita.logoCasa}" alt="${partita.squadraCasa}" class="logo-squadra">
+        </div>
         <div class="nome-squadra">${partita.squadraCasa}</div>
         <div class="punteggio">${partita.punteggioCasa} - ${partita.punteggioOspite}</div>
         <div class="nome-squadra">${partita.squadraOspite}</div>
-        <div class="logo-container"><img src="${partita.logoOspite}" alt="Logo ${partita.squadraOspite}"></div>
+        <div class="logo-blocco">
+          <img src="${partita.logoOspite}" alt="${partita.squadraOspite}" class="logo-squadra">
+        </div>
       </div>
       <div class="dettagli">
         <div class="marcatori">
-          <div class="marcatore casa">
-            <p>${partita.marcatoriCasa.join(", ")}</p>
-          </div>
-          <div class="marcatore ospite">
-            <p>${partita.marcatoriOspite.join(", ")}</p>
-          </div>
+          <div class="marcatore casa">${partita.marcatoriCasa.join("<br>")}</div>
+          <div class="marcatore ospite">${partita.marcatoriOspite.join("<br>")}</div>
         </div>
         <div class="divise">
-          <img src="${partita.magliaCasa}" class="divisa">
-          <img src="${partita.pallone}" class="pallone">
-          <img src="${partita.magliaOspite}" class="divisa">
+          <img src="${partita.magliaCasa}" alt="Maglia ${partita.squadraCasa}" class="divisa">
+          <img src="${partita.pallone}" alt="Pallone" class="pallone">
+          <img src="${partita.magliaOspite}" alt="Maglia ${partita.squadraOspite}" class="divisa">
         </div>
-        <p class="note">${partita.note}</p>
+        <div class="note">${partita.note}</div>
       </div>
     `;
 
