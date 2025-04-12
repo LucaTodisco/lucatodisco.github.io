@@ -47,17 +47,25 @@ const partite = [
 // Funzione per generare il calendario delle partite
 function generaPartite() {
   const calendarioDiv = document.getElementById('calendario-partite');
-  
+
   partite.forEach(partita => {
     const partitaDiv = document.createElement('div');
     partitaDiv.classList.add('partita');
     partitaDiv.setAttribute('onclick', 'toggleDetails(this)');
-    
+
     partitaDiv.innerHTML = `
       <div class="titolo-partita">
-        <img src="${partita.logoCasa}" alt="Logo ${partita.squadraCasa}" class="logo-squadra">
-        ${partita.squadraCasa} ${partita.punteggioCasa} - ${partita.punteggioOspite} ${partita.squadraOspite}
-        <img src="${partita.logoOspite}" alt="Logo ${partita.squadraOspite}" class="logo-squadra">
+        <div class="logo-wrapper">
+          <img src="${partita.logoCasa}" alt="Logo ${partita.squadraCasa}" class="logo-squadra">
+        </div>
+        <div class="info-partita">
+          <span class="nome-squadra">${partita.squadraCasa}</span>
+          <span class="punteggio">${partita.punteggioCasa} - ${partita.punteggioOspite}</span>
+          <span class="nome-squadra">${partita.squadraOspite}</span>
+        </div>
+        <div class="logo-wrapper">
+          <img src="${partita.logoOspite}" alt="Logo ${partita.squadraOspite}" class="logo-squadra">
+        </div>
       </div>
       <div class="dettagli">
         <div class="marcatori">
@@ -75,13 +83,14 @@ function generaPartite() {
           <img src="${partita.pallone}" alt="Pallone" class="pallone">
           <img src="${partita.magliaOspite}" alt="Maglia ${partita.squadraOspite}" class="divisa">
         </div>
-        <p>Note: ${partita.note}</p>
+        <p class="note">Note: ${partita.note}</p>
       </div>
     `;
-    
+
     calendarioDiv.appendChild(partitaDiv);
   });
 }
+
 
 // Funzione per aprire/chiudere i dettagli della partita
 function toggleDetails(element) {
