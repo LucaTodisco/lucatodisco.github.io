@@ -1,89 +1,135 @@
+/* Importa i font personalizzati */
+@font-face {
+  font-family: 'DINNextMedium';
+  src: url('../fonts/DINNextW1G-Medium.otf') format('opentype');
+}
+@font-face {
+  font-family: 'DINNextRegular';
+  src: url('../fonts/DINNextW1G-Regular.otf') format('opentype');
+}
+
+/* Stili generali */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'DINNextRegular', Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
+  background-color: #ffffff;
   color: #333;
 }
 
+h1 {
+  text-align: center;
+  font-size: 2.5em;
+  margin: 20px 0;
+  color: #333;
+}
+
+h2 {
+  text-align: center;
+  font-size: 1.8em;
+  margin-top: 10px;
+  color: #666;
+}
+
+/* Contenitore partite */
 #calendario-partite {
-  max-width: 1000px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 20px;
 }
 
+/* Singola partita */
 .partita {
-  border-radius: 0;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
+  background-color: white;
+  margin-bottom: 25px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  cursor: pointer;
+  border: none;
 }
 
+/* Riga del titolo della partita */
 .titolo-partita {
   display: flex;
-  height: 100px;
-  cursor: pointer;
+  width: 100%;
+  height: 60px;
+  text-align: center;
+  align-items: center;
+  font-size: 1.4em;
+  font-family: 'DINNextMedium', sans-serif;
+  font-weight: bold;
+  color: white;
 }
 
-.logo-container {
+/* Blocchi della partita */
+.logo-blocco {
   background-color: white;
-  width: 100px;
+  width: 80px;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.logo-container img {
+.logo-squadra {
+  width: 40px;
+  height: 40px;
   background-color: white;
-  width: 60px;
-  height: 60px;
-  object-fit: contain;
+  border-radius: 0;
   padding: 5px;
+  object-fit: contain;
 }
 
+/* Blocchi per i nomi delle squadre */
 .nome-squadra {
   background-color: #171D8D;
-  color: white;
-  width: 200px;
+  flex: 1;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.2em;
-  font-weight: bold;
+  font-family: 'DINNextMedium', sans-serif;
 }
 
+/* Blocco del punteggio */
 .punteggio {
   background-color: white;
   color: #171D8D;
+  font-size: 1.3em;
+  font-weight: bold;
   width: 100px;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.5em;
-  font-weight: bold;
 }
 
+/* Dettagli della partita */
 .dettagli {
   display: none;
   background-color: white;
   padding: 15px;
-  border-top: 1px solid #ddd;
+  font-size: 1em;
+  color: #333;
 }
 
+/* Quando visibile */
 .partita.aperta .dettagli {
   display: block;
 }
 
+/* Marcatori */
 .marcatori {
   display: flex;
   justify-content: space-between;
-  margin-top: 10px;
-  gap: 20px;
+  margin-bottom: 10px;
 }
 
 .marcatore {
-  width: 48%;
+  flex: 1;
+  font-family: 'DINNextRegular', sans-serif;
   font-size: 1em;
+  color: #333;
+  padding: 0 10px;
 }
 
 .marcatore.casa {
@@ -96,23 +142,56 @@ body {
   color: #171D8D;
 }
 
+/* Divise e pallone */
 .divise {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 15px;
+  margin: 15px 0;
 }
 
-.divisa, .pallone {
+.divisa {
   width: 80px;
   height: 80px;
   object-fit: contain;
-  margin: 0 10px;
+  margin: 0 15px;
 }
 
+.pallone {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+/* Note */
 .note {
-  margin-top: 10px;
   font-style: italic;
-  color: #666;
+  color: #777;
   text-align: center;
+}
+
+/* Responsività */
+@media (max-width: 768px) {
+  .titolo-partita {
+    flex-wrap: wrap;
+    height: auto;
+  }
+
+  .punteggio {
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  .nome-squadra {
+    padding: 5px;
+  }
+
+  .marcatori {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .marcatore {
+    padding: 5px 0;
+  }
 }
