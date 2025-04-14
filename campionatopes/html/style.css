@@ -1,68 +1,94 @@
-/* === FONT === */
 @font-face {
   font-family: 'DINNextMedium';
-  src: url('../fonts/DINNextW1G-Medium.otf') format('opentype');
+  src: url('../fonts/DINNextW1G-Medium.otf');
 }
 @font-face {
   font-family: 'DINNextRegular';
-  src: url('../fonts/DINNextW1G-Regular.otf') format('opentype');
+  src: url('../fonts/DINNextW1G-Regular.otf');
 }
 
-/* === GENERALE === */
 body {
-  font-family: 'DINNextRegular', Arial, sans-serif;
+  font-family: 'DINNextRegular', sans-serif;
+  background: #fff;
   margin: 0;
   padding: 0;
-  background-color: #ffffff;
   color: #333;
 }
 
 h1 {
   text-align: center;
   font-size: 2.5em;
-  margin: 20px 0;
   color: #333;
+  margin-top: 30px;
+  font-family: 'DINNextMedium';
 }
 
-h2 {
-  text-align: center;
-  font-size: 1.8em;
-  margin-top: 10px;
-  color: #666;
-}
-
-#calendario-partite {
+#calendario {
   max-width: 900px;
   margin: 0 auto;
   padding: 20px;
 }
 
-/* === PARTITA === */
+.giornata {
+  margin-bottom: 30px;
+}
+
+/* === Intestazione della giornata === */
+.anteprima-giornata {
+  background-color: #f0f0f0;
+  font-family: 'DINNextMedium';
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.anteprima-giornata:hover {
+  background-color: #e0e0e0;
+}
+
+.risultato-linea {
+  margin: 4px 0;
+  font-size: 1.1em;
+}
+
+/* Giornata aperta: mostra il contenuto */
+.giornata.aperta .contenuto-giornata {
+  display: block;
+}
+
+.contenuto-giornata {
+  display: none;
+}
+
+/* === Partita === */
 .partita {
-  background-color: white;
-  margin-bottom: 25px;
+  background: white;
+  margin: 15px 0;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   cursor: pointer;
   border: none;
 }
 
-/* === TITOLO PARTITA === */
+.partita:hover {
+  transform: scale(1.05);
+}
+
+/* Titolo della partita */
 .titolo-partita {
   display: flex;
-  width: 100%;
   height: 60px;
-  text-align: center;
-  align-items: center;
   font-size: 1.4em;
-  font-family: 'DINNextMedium', sans-serif;
+  font-family: 'DINNextMedium';
   font-weight: bold;
   color: white;
+  text-align: center;
 }
 
 .logo-blocco {
-  background-color: white;
   width: 80px;
-  height: 100%;
+  background: white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -71,46 +97,45 @@ h2 {
 .logo-squadra {
   width: 40px;
   height: 40px;
-  background-color: white;
-  border-radius: 0;
-  padding: 5px;
   object-fit: contain;
+  padding: 5px;
 }
 
 .nome-squadra {
-  background-color: #171D8D;
   flex: 1;
-  height: 100%;
+  background-color: #171D8D;
+  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'DINNextMedium', sans-serif;
-  color: white;
 }
 
 .punteggio {
-  background-color: white;
-  color: #171D8D;
-  font-size: 1.3em;
-  font-weight: bold;
   width: 100px;
-  height: 100%;
+  background: white;
+  color: #171D8D;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* === DETTAGLI PARTITA === */
+/* Dettagli */
 .dettagli {
-  display: none; /* nascosto di default */
   position: relative;
   background-size: cover;
   background-position: center;
   overflow: hidden;
 }
 
+.dettagli .overlay {
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 15px;
+  position: relative;
+  z-index: 2;
+}
+
 .partita.aperta .dettagli {
-  display: block; /* visibile solo quando "aperta" */
+  display: block;
 }
 
 .dettagli::before {
@@ -121,14 +146,7 @@ h2 {
   z-index: 1;
 }
 
-.dettagli .overlay {
-  background-color: rgba(255, 255, 255, 0.4);
-  padding: 15px;
-  position: relative;
-  z-index: 2;
-}
-
-/* === MARCATORI === */
+/* Marcatori */
 .marcatori {
   display: flex;
   justify-content: space-between;
@@ -139,23 +157,21 @@ h2 {
 
 .marcatore {
   flex: 1;
-  font-family: 'DINNextRegular', sans-serif;
+  font-family: 'DINNextRegular';
   font-size: 1em;
-  color: #333;
+  color: #171D8D;
   padding: 0 10px;
+  text-align: center;
 }
 
 .marcatore.casa {
   text-align: left;
-  color: #171D8D;
 }
-
 .marcatore.ospite {
   text-align: right;
-  color: #171D8D;
 }
 
-/* === DIVISE E PALLONE === */
+/* Divise e pallone */
 .divise {
   display: flex;
   justify-content: center;
@@ -178,7 +194,7 @@ h2 {
   object-fit: contain;
 }
 
-/* === NOTE === */
+/* Note */
 .note {
   font-style: italic;
   color: #171D8D;
@@ -187,7 +203,7 @@ h2 {
   z-index: 2;
 }
 
-/* === RESPONSIVO === */
+/* Responsivo */
 @media (max-width: 768px) {
   .titolo-partita {
     flex-wrap: wrap;
@@ -199,16 +215,8 @@ h2 {
     padding: 10px 0;
   }
 
-  .nome-squadra {
-    padding: 5px;
-  }
-
   .marcatori {
     flex-direction: column;
     text-align: center;
-  }
-
-  .marcatore {
-    padding: 5px 0;
   }
 }
