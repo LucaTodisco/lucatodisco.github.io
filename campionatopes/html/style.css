@@ -289,27 +289,69 @@ h2 {
    RESPONSIVO (Mobile)
 ========================================= */
 @media (max-width: 768px) {
+  
+  /* --- TITOLO PARTITA --- */
   .titolo-partita {
-    flex-wrap: wrap;
-    height: auto;
+    flex-wrap: nowrap; /* Forza tutto su una singola riga */
+    height: 50px;      /* Altezza ridotta per il mobile */
+    font-size: 1rem;
+  }
+
+  .logo-blocco {
+    width: 45px; /* Riduciamo lo spazio per il logo */
+  }
+
+  .logo-squadra {
+    width: 28px;
+    height: 28px;
   }
 
   .punteggio {
-    width: 100%;
-    padding: 10px 0;
+    width: 60px; /* Riduciamo la larghezza del blocco risultato */
+    padding: 0;
+    font-size: 1.1em;
   }
 
+  .nome-squadra {
+    font-size: 0.9em; /* Carattere leggermente più piccolo */
+    padding: 0 4px;
+    /* Evita che nomi lunghi spacchino il layout stringendolo su 2 righe */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+  }
+
+  /* --- DETTAGLI APERTI (Marcatori e Divise) --- */
   .marcatori {
-    flex-direction: column;
-    text-align: center;
+    flex-direction: row; /* Li mantiene sulla stessa riga come su PC */
+    justify-content: space-between;
   }
   
-  .marcatore.casa, .marcatore.ospite {
-    text-align: center;
-    margin-bottom: 5px;
+  .marcatore {
+    font-size: 0.85em; /* Testo leggermente più piccolo per schermi stretti */
+    padding: 0 5px;    /* Riduciamo un po' i margini laterali */
   }
 
-  /* Adattamenti per la Classifica su Mobile */
+  .marcatore.casa {
+    text-align: left;
+  }
+  
+  .marcatore.ospite {
+    text-align: right;
+  }
+
+  .divisa {
+    width: 60px; /* Magliette leggermente più piccole */
+    height: 60px;
+    margin: 0 8px;
+  }
+
+  .pallone {
+    width: 35px;
+    height: 35px;
+  }
+
+  /* --- CLASSIFICA (Adattamenti già presenti) --- */
   .tabella-classifica th, 
   .tabella-classifica td {
     padding: 8px 4px;
@@ -328,4 +370,5 @@ h2 {
   .text-left-flex {
     gap: 6px;
   }
+}
 }
