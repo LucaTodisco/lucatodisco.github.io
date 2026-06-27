@@ -923,7 +923,7 @@ const giornate = [
 		//magliaCasa: "../img/kits/stagione2/juventus-home.png",
 		//magliaOspite: "../img/kits/stagione2/bari-home.png",
 		//pallone: "../img/balls/stagione2/roteiro-hivis.png",
-		stadioImg: "../img/stadiums/juventus-notte-sereno.png",
+		stadioImg: "../img/stadiums/bari-notte-sereno.png",
 		note: "Stadio San Nicola - Bari",
 		inProgramma: true
 	},
