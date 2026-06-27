@@ -739,7 +739,7 @@ const giornate = [
 		pallone: "../img/balls/stagione2/roteiro-hivis.png",
 		stadioImg: "../img/stadiums/fiorentina-notte-sereno.png",
 		note: "Stadio Artemio Franchi - Firenze",
-		inProgramma: true
+		inProgramma: false
 	},
 	{
 		squadraCasa: "Lazio",
@@ -771,7 +771,7 @@ const giornate = [
 		pallone: "../img/balls/stagione2/roteiro-hivis.png",
 		stadioImg: "../img/stadiums/napoli-notte-sereno.png",
 		note: "Stadio Maradona  - Napoli",
-		inProgramma: true
+		inProgramma: false
 	},
 	{
 		squadraCasa: "Roma",
@@ -803,7 +803,7 @@ const giornate = [
 		pallone: "../img/balls/stagione2/roteiro-hivis.png",
 		stadioImg: "../img/stadiums/sampdoria-notte-sereno.png",
 		note: "Stadio Luigi Ferraris - Genova",
-		inProgramma: true
+		inProgramma: false
 	}
   ]
 	},
@@ -1209,4 +1209,96 @@ function generaCalendario() {
   });
 }
 
-document.addEventListener("DOMContentLoaded", generaCalendario);
+// ARRAY DELLA CLASSIFICA MANUALE
+// Modifica tu i numeri qui dentro per aggiornare la classifica!
+const classificaDati = [
+  { nome: "Parma", logo: "../img/parma-logo.png", punti: 19, vinte: 6, nulle: 1, perse: 1, gf: 12, gs: 8 },
+  { nome: "Juventus", logo: "../img/juventus-logo.png", punti: 10, vinte: 3, nulle: 1, perse: 4, gf: 7, gs: 9 },
+  { nome: "Cagliari", logo: "../img/cagliari-logo.png", punti: 17, vinte: 5, nulle: 2, perse: 1, gf: 8, gs: 5 },
+  { nome: "Napoli", logo: "../img/napoli-logo.png", punti: 13, vinte: 3, nulle: 4, perse: 1, gf: 10, gs: 9 },
+  { nome: "Fiorentina", logo: "../img/fiorentina-logo.png", punti: 9, vinte: 2, nulle: 3, perse: 3, gf: 6, gs: 9 },
+  { nome: "Reggina", logo: "../img/reggina-logo.png", punti: 6, vinte: 1, nulle: 3, perse: 4, gf: 4, gs: 9 },
+  { nome: "Inter", logo: "../img/inter-logo.png", punti: 11, vinte: 3, nulle: 2, perse: 3, gf: 15, gs: 10 },
+  { nome: "Sampdoria", logo: "../img/sampdoria-logo.png", punti: 7, vinte: 0, nulle: 7, perse: 1, gf: 6, gs: 7 },
+  { nome: "Lazio", logo: "../img/lazio-logo.png", punti: 8, vinte: 1, nulle: 5, perse: 2, gf: 3, gs: 4 },
+  { nome: "Roma", logo: "../img/roma-logo.png", punti: 7, vinte: 1, nulle: 4, perse: 3, gf: 6, gs: 6 },
+  { nome: "Bari", logo: "../img/bari-logo.png", punti: 9, vinte: 2, nulle: 3, perse: 3, gf: 5, gs: 5 },
+  { nome: "Genoa", logo: "../img/genoa-logo.png", punti: 10, vinte: 3, nulle: 1, perse: 4, gf: 6, gs: 7 },
+];
+
+function generaClassifica() {
+  const container = document.getElementById("classifica-container");
+  container.innerHTML = "";
+
+  // Calcola la differenza reti (gf - gs) e le partite giocate (v + n + p) per ogni squadra
+  const classificaMarcata = classificaDati.map(squadra => {
+    return {
+      ...squadra,
+      giocate: squadra.vinte + squadra.nulle + squadra.perse,
+      dr: squadra.gf - squadra.gs
+    };
+  });
+
+  // Ordina l'array: prima per punti, se pari per Differenza Reti (DR), se pari per Gol Fatti (GF)
+  classificaMarcata.sort((a, b) => {
+    if (b.punti !== a.punti) return b.punti - a.punti;
+    if (b.dr !== a.dr) return b.dr - a.dr;
+    return b.gf - a.gf;
+  });
+
+  // Crea la struttura della tabella HTML
+  const tabella = document.createElement("table");
+  tabella.classList.add("tabella-classifica");
+
+  // Intestazione della tabella
+  tabella.innerHTML = `
+    <thead>
+      <tr>
+        <th>Pos</th>
+        <th class="text-left">Squadra</th>
+        <th>Pti</th>
+        <th>G</th>
+        <th>V</th>
+        <th>P</th>
+        <th>S</th>
+        <th>GF</th>
+        <th>GS</th>
+        <th>DR</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  `;
+
+  const tbody = tabella.querySelector("tbody");
+
+  // Popola le righe della classifica
+  classificaMarcata.forEach((squadra, index) => {
+    const riga = document.createElement("tr");
+    
+    riga.innerHTML = `
+      <td>${index + 1}</td>
+      <td class="text-left-flex">
+        <img src="${squadra.logo}" alt="${squadra.nome}" class="classifica-logo">
+        <span class="classifica-nome">${squadra.nome}</span>
+      </td>
+      <td><strong>${squadra.punti}</strong></td>
+      <td>${squadra.giocate}</td>
+      <td>${squadra.vinte}</td>
+      <td>${squadra.nulle}</td>
+      <td>${squadra.perse}</td>
+      <td>${squadra.gf}</td>
+      <td>${squadra.gs}</td>
+      <td>${squadra.dr > 0 ? '+' + squadra.dr : squadra.dr}</td>
+    `;
+    tbody.appendChild(riga);
+  });
+
+  container.appendChild(tabella);
+}
+
+// Modifica l'ascoltatore finale per caricare entrambe le funzioni
+document.addEventListener("DOMContentLoaded", () => {
+  generaCalendario();
+  generaClassifica();
+});
