@@ -15,25 +15,105 @@ body {
   color: #333;
 }
 
-h1 {
+/* === Titoli === */
+h1, h2 {
   text-align: center;
-  font-size: 2.5em;
-  color: #333;
-  margin-top: 30px;
   font-family: 'DINNextMedium';
 }
 
-#calendario {
+h1 {
+  font-size: 2.5em;
+  color: #333;
+  margin-top: 30px;
+}
+
+h2 {
+  font-size: 2em;
+  color: #171D8D;
+  margin-top: 40px;
+  margin-bottom: 15px;
+}
+
+/* === Contenitori Principali === */
+#calendario, #classifica-container {
   max-width: 900px;
   margin: 0 auto;
   padding: 20px;
 }
 
+/* =========================================
+   SEZIONE CLASSIFICA
+========================================= */
+.tabella-classifica {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border-radius: 6px;
+  /* overflow: hidden permette al border-radius di applicarsi anche agli angoli della tabella */
+  overflow: hidden; 
+  margin-bottom: 20px;
+}
+
+.tabella-classifica th, 
+.tabella-classifica td {
+  padding: 12px 10px;
+  text-align: center;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.tabella-classifica th {
+  background-color: #171D8D;
+  color: white;
+  font-family: 'DINNextMedium';
+  font-size: 1.1em;
+}
+
+.tabella-classifica tr:last-child td {
+  border-bottom: none;
+}
+
+.tabella-classifica tr:hover {
+  background-color: #f0f0f0;
+}
+
+.text-left {
+  text-align: left !important;
+}
+
+.text-left-flex {
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.classifica-logo {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.classifica-nome {
+  font-family: 'DINNextMedium';
+  color: #333;
+}
+
+/* Evidenzia la prima posizione o la "zona coppe" (opzionale) */
+.tabella-classifica tbody tr:nth-child(1) td:first-child {
+  color: #171D8D;
+  font-family: 'DINNextMedium';
+  font-size: 1.2em;
+}
+
+/* =========================================
+   SEZIONE CALENDARIO
+========================================= */
 .giornata {
   margin-bottom: 30px;
 }
 
-/* === Intestazione della giornata === */
+/* Intestazione della giornata */
 .anteprima-giornata {
   background-color: #f0f0f0;
   font-family: 'DINNextMedium';
@@ -62,17 +142,18 @@ h1 {
   display: none;
 }
 
-/* === Partita === */
+/* Partita */
 .partita {
   background: white;
   margin: 15px 0;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   cursor: pointer;
   border: none;
+  transition: transform 0.2s ease-in-out;
 }
 
 .partita:hover {
-  transform: scale(1.05);
+  transform: scale(1.02); /* Leggermente ridotto rispetto a 1.05 per maggiore eleganza */
 }
 
 /* Titolo della partita */
@@ -81,7 +162,6 @@ h1 {
   height: 60px;
   font-size: 1.4em;
   font-family: 'DINNextMedium';
-  font-weight: bold;
   color: white;
   text-align: center;
 }
@@ -119,7 +199,7 @@ h1 {
   align-items: center;
 }
 
-/* Dettagli */
+/* Dettagli Partita */
 .dettagli {
   position: relative;
   background-size: cover;
@@ -162,6 +242,7 @@ h1 {
   color: #171D8D;
   padding: 0 10px;
   text-align: center;
+  font-weight: bold;
 }
 
 .marcatore.casa {
@@ -201,9 +282,12 @@ h1 {
   text-align: center;
   position: relative;
   z-index: 2;
+  font-family: 'DINNextMedium';
 }
 
-/* Responsivo */
+/* =========================================
+   RESPONSIVO (Mobile)
+========================================= */
 @media (max-width: 768px) {
   .titolo-partita {
     flex-wrap: wrap;
@@ -218,5 +302,30 @@ h1 {
   .marcatori {
     flex-direction: column;
     text-align: center;
+  }
+  
+  .marcatore.casa, .marcatore.ospite {
+    text-align: center;
+    margin-bottom: 5px;
+  }
+
+  /* Adattamenti per la Classifica su Mobile */
+  .tabella-classifica th, 
+  .tabella-classifica td {
+    padding: 8px 4px;
+    font-size: 0.85em;
+  }
+
+  .classifica-logo {
+    width: 20px;
+    height: 20px;
+  }
+
+  .classifica-nome {
+    font-size: 0.9em;
+  }
+
+  .text-left-flex {
+    gap: 6px;
   }
 }
