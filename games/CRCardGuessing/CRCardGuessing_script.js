@@ -1,38 +1,32 @@
-const wordImages = [
-  // Inserisci qui gli URL delle immagini corrispondenti alle lettere
-  // Puoi associare le immagini con le lettere usando un array o un oggetto chiave-valore.
-  // Ad esempio, se usi un array, la posizione corrisponderà all'indice della lettera.
-  // wordImages[0] rappresenterà l'immagine per la prima lettera, wordImages[1] per la seconda, e così via.
-  "./games/CRCardGuessing/img_supercell/letter_a.png",
-  "./games/CRCardGuessing/img_supercell/letter_b.png",
-  "./games/CRCardGuessing/img_supercell/letter_c.png",
-  "./games/CRCardGuessing/img_supercell/letter_d.png",
-  "./games/CRCardGuessing/img_supercell/letter_e.png",
-  "./games/CRCardGuessing/img_supercell/letter_f.png",
-  "./games/CRCardGuessing/img_supercell/letter_g.png",
-  "./games/CRCardGuessing/img_supercell/letter_h.png",
-  "./games/CRCardGuessing/img_supercell/letter_i.png",
-  "./games/CRCardGuessing/img_supercell/letter_j.png",
-  "./games/CRCardGuessing/img_supercell/letter_k.png",
-  "./games/CRCardGuessing/img_supercell/letter_l.png",
-  "./games/CRCardGuessing/img_supercell/letter_m.png",
-  "./games/CRCardGuessing/img_supercell/letter_n.png",
-  "./games/CRCardGuessing/img_supercell/letter_o.png",
-  "./games/CRCardGuessing/img_supercell/letter_p.png",
-  "./games/CRCardGuessing/img_supercell/letter_q.png",
-  "./games/CRCardGuessing/img_supercell/letter_r.png",
-  "./games/CRCardGuessing/img_supercell/letter_s.png",
-  "./games/CRCardGuessing/img_supercell/letter_t.png",
-  "./games/CRCardGuessing/img_supercell/letter_u.png",
-  "./games/CRCardGuessing/img_supercell/letter_v.png",
-  "./games/CRCardGuessing/img_supercell/letter_w.png",
-  "./games/CRCardGuessing/img_supercell/letter_x.png",
-  "./games/CRCardGuessing/img_supercell/letter_y.png",
-  "./games/CRCardGuessing/img_supercell/letter_z.png"
-  // ... e così via per le altre lettere dell'alfabeto.
+const letterMap = [
+  "./CRCardGuessing/img_supercell/letter_a.png",
+  "./CRCardGuessing/img_supercell/letter_b.png",
+  "./CRCardGuessing/img_supercell/letter_c.png",
+  "./CRCardGuessing/img_supercell/letter_d.png",
+  "./CRCardGuessing/img_supercell/letter_e.png",
+  "./CRCardGuessing/img_supercell/letter_f.png",
+  "./CRCardGuessing/img_supercell/letter_g.png",
+  "./CRCardGuessing/img_supercell/letter_h.png",
+  "./CRCardGuessing/img_supercell/letter_i.png",
+  "./CRCardGuessing/img_supercell/letter_j.png",
+  "./CRCardGuessing/img_supercell/letter_k.png",
+  "./CRCardGuessing/img_supercell/letter_l.png",
+  "./CRCardGuessing/img_supercell/letter_m.png",
+  "./CRCardGuessing/img_supercell/letter_n.png",
+  "./CRCardGuessing/img_supercell/letter_o.png",
+  "./CRCardGuessing/img_supercell/letter_p.png",
+  "./CRCardGuessing/img_supercell/letter_q.png",
+  "./CRCardGuessing/img_supercell/letter_r.png",
+  "./CRCardGuessing/img_supercell/letter_s.png",
+  "./CRCardGuessing/img_supercell/letter_t.png",
+  "./CRCardGuessing/img_supercell/letter_u.png",
+  "./CRCardGuessing/img_supercell/letter_v.png",
+  "./CRCardGuessing/img_supercell/letter_w.png",
+  "./CRCardGuessing/img_supercell/letter_x.png",
+  "./CRCardGuessing/img_supercell/letter_y.png",
+  "./CRCardGuessing/img_supercell/letter_z.png"
 ];
 
-// Definisci le parole corrette per i testi in italiano e in inglese
 const languageTexts = {
   italian: {
     toggleLanguageButton: "Cambia Lingua",
@@ -46,7 +40,7 @@ const languageTexts = {
   },
 };
 
-const blankImageSrc = "././games/CRCardGuessing/img_supercell/blank.png"; // Percorso dell'immagine "blank"
+const blankImageSrc = "./CRCardGuessing/img_supercell/blank.png";
 
 const italianWords = [
   "Arciere magico",
@@ -58,7 +52,7 @@ const italianWords = [
   "Barbari scelti",
   "Barile barbarico",
   "Barile d'ossa",
-  "Barile Goblin",
+  "Barile Goblin",  
   "Bocciatore",
   "Boia",
   "Bombarolo",
@@ -157,7 +151,20 @@ const italianWords = [
   "Tre moschettieri",
   "Trivella goblin",
   "Valchiria",
-  "Veleno"
+  "Veleno",
+  "Berserker",
+  "Gigantessa delle Rune",
+  "Cespuglio Sospetto",
+  "Fuorilegge Boss",
+  "Goblin Demolitore",
+  "Goblinstein",
+  "Groviglio",
+  "Imperatrice degli Spiriti",
+  "Macchina Goblin",
+  "Maledizione Goblin",
+  "Nihil",
+  "Principino",
+  "Ronin"
 ];
 
 const englishWords = [
@@ -269,128 +276,116 @@ const englishWords = [
   "Three Musketeers",
   "Goblin Drill",
   "Valkyrie",
-  "Poison"
+  "Poison",
+  "Berserker",
+  "Rune Giant",
+  "Suspicious Bush",
+  "Boss Bandit",
+  "Goblin Demolisher",
+  "Goblinstein",
+  "Vines",
+  "Spirit Empress",
+  "Goblin Machine",
+  "Goblin Curse",
+  "Void",
+  "Little Prince",
+  "Ronin"
 ];
 
-// Variabile per tenere traccia della lingua selezionata (0 per italiano, 1 per inglese)
 let currentLanguage = "italian";
 let currentWord = "";
 
-// Funzione per aggiornare i testi dei pulsanti in base alla lingua corrente
 function updateButtonTexts() {
-  toggleLanguageButton.textContent = languageTexts[currentLanguage].toggleLanguageButton;
-  newWordButton.textContent = languageTexts[currentLanguage].newWordButton;
-  revealButton.textContent = languageTexts[currentLanguage].revealButton;
+  document.getElementById("toggle-language-button").textContent = languageTexts[currentLanguage].toggleLanguageButton;
+  document.getElementById("new-word-button").textContent = languageTexts[currentLanguage].newWordButton;
+  document.getElementById("reveal-button").textContent = languageTexts[currentLanguage].revealButton;
 }
 
-// Funzione per selezionare casualmente una parola da un array in base alla lingua selezionata
 function getRandomWord() {
-  if (currentLanguage === "italian") {
-    return italianWords[Math.floor(Math.random() * italianWords.length)].toUpperCase();
-  } else {
-    return englishWords[Math.floor(Math.random() * englishWords.length)].toUpperCase();
-  }
+  const words = currentLanguage === "italian" ? italianWords : englishWords;
+  return words[Math.floor(Math.random() * words.length)].toUpperCase();
 }
 
-// Funzione per visualizzare le immagini per la parola corrente
 function displayWordImages() {
   const wordImagesDiv = document.getElementById("word-images");
-  wordImagesDiv.innerHTML = ""; // Pulisce il contenuto precedente
+  wordImagesDiv.innerHTML = ""; 
 
   const wordParts = currentWord.split(" ");
-  const addSpace = wordParts.length > 1;
 
-  for (let i = 0; i < wordParts.length; i++) {
-    const wordPart = wordParts[i];
-
+  wordParts.forEach((wordPart, partIndex) => {
+    // Contenitore per la singola parola
+    const wordContainer = document.createElement("div");
+    wordContainer.style.display = "flex";
+    
     for (let j = 0; j < wordPart.length; j++) {
-      const letter = wordPart[j].toUpperCase(); // Converti la lettera in maiuscolo
+      const letter = wordPart[j];
       const letterIndex = letter.charCodeAt(0) - 65;
 
-	  if (letterIndex >= 0 && letterIndex < wordImages.length) {
-		const imageSrc = wordImages[letterIndex];
-		const image = document.createElement("img");
-		image.src = blankImageSrc; // Usa l'immagine "blank" come immagine iniziale
-		image.classList.add("letter-image", "hidden-letter");
-		image.setAttribute("data-letter-index", letterIndex); // Aggiungi l'indice della lettera come attributo
+      // Se è una lettera valida, crea l'immagine coperta
+      if (letterIndex >= 0 && letterIndex <= 25 && letterMap[letterIndex]) {
+        const image = document.createElement("img");
+        image.src = blankImageSrc; 
+        image.classList.add("letter-image", "hidden-letter");
+        image.setAttribute("data-letter-index", letterIndex);
 
-		if (i === wordParts.length - 1 && j === wordPart.length - 1) {
-		  image.classList.add("last-letter");
-		}
+        image.addEventListener("click", function () {
+          if (this.classList.contains("hidden-letter")) {
+            this.classList.remove("hidden-letter");
+            this.classList.add("reveal-anim"); 
+            this.src = letterMap[this.getAttribute("data-letter-index")];
+          }
+        });
 
-		// Aggiunge un listener di evento per cambiare la classe al click
-		image.addEventListener("click", function () {
-		  if (this.classList.contains("hidden-letter")) {
-			this.classList.remove("hidden-letter");
-			const letterIndex = this.getAttribute("data-letter-index");
-			this.src = wordImages[letterIndex];
-		  }
-		});
+        wordContainer.appendChild(image);
+      } else {
+        // Caratteri speciali (spazi, trattini)
+        const letterSpan = document.createElement("span");
+        letterSpan.textContent = letter;
+        letterSpan.style.alignSelf = "center";
+        wordContainer.appendChild(letterSpan);
+      }
+    }
+    
+    wordImagesDiv.appendChild(wordContainer);
 
-		wordImagesDiv.appendChild(image);
-	  } else {
-		// Se la lettera non è un'immagine, aggiungila come testo normale
-		const letterSpan = document.createElement("span");
-		letterSpan.textContent = letter;
-		wordImagesDiv.appendChild(letterSpan);
-	  }
-	}
-
-	if (addSpace && i < wordParts.length - 1) {
+    if (partIndex < wordParts.length - 1) {
       const spaceSpan = document.createElement("span");
-      spaceSpan.textContent = " ";
-      spaceSpan.classList.add("word-space"); // Aggiunge la classe per lo spazio tra le parole
+      spaceSpan.classList.add("word-space");
       wordImagesDiv.appendChild(spaceSpan);
     }
-  }
+  });
 }
 
-// Funzione per aggiornare i testi dei pulsanti in base alla lingua corrente
-function updateButtonTexts() {
-  toggleLanguageButton.textContent = languageTexts[currentLanguage].toggleLanguageButton;
-  newWordButton.textContent = languageTexts[currentLanguage].newWordButton;
-  revealButton.textContent = languageTexts[currentLanguage].revealButton;
-}
+// ==========================================
+// EVENT LISTENERS DEI PULSANTI
+// ==========================================
 
-
-// Bottone per generare una nuova parola
-const newWordButton = document.getElementById("new-word-button");
-newWordButton.addEventListener("click", function () {
+document.getElementById("new-word-button").addEventListener("click", function () {
   currentWord = getRandomWord();
   displayWordImages();
 });
 
-// Bottone per rivelare la parola
-const revealButton = document.getElementById("reveal-button");
-revealButton.addEventListener("click", function () {
+document.getElementById("reveal-button").addEventListener("click", function () {
   const letterImages = document.getElementsByClassName("letter-image");
   for (let image of letterImages) {
-	image.classList.remove("hidden-letter");
-	const letterIndex = image.getAttribute("data-letter-index");
-	image.src = wordImages[letterIndex];
+    if (image.classList.contains("hidden-letter")) {
+      image.classList.remove("hidden-letter");
+      image.classList.add("reveal-anim");
+      image.src = letterMap[image.getAttribute("data-letter-index")];
+    }
   }
 });
 
-// Bottone per cambiare lingua
-const toggleLanguageButton = document.getElementById("toggle-language-button");
-toggleLanguageButton.addEventListener("click", function () {
-  toggleLanguage();
+document.getElementById("toggle-language-button").addEventListener("click", function () {
+  currentLanguage = currentLanguage === "italian" ? "english" : "italian";
+  currentWord = getRandomWord();
+  displayWordImages();
   updateButtonTexts();
 });
 
-// Funzione per cambiare lingua e visualizzare una nuova parola
-function toggleLanguage() {
-  currentLanguage = currentLanguage === "italian" ? "english" : "italian";
-  document.getElementById("word-images").innerHTML = ""; // Pulisce il contenuto precedente
-  currentWord = getRandomWord();
-  displayWordImages();
-}
-
-// Genera una parola casuale all'avvio della pagina
+// ==========================================
+// AVVIO DEL GIOCO
+// ==========================================
 currentWord = getRandomWord();
 displayWordImages();
-updateButtonTexts(); // Imposta i testi dei pulsanti inizialmente in italiano
-
-
-
-
+updateButtonTexts();
