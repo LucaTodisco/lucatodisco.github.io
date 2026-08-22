@@ -20,26 +20,48 @@ h1 {
   margin-bottom: 20px;
 }
 
-/* Stile generale del contenitore delle immagini delle lettere */
+/* ... mantieni il tuo font e body ... */
+
 #word-images {
   display: flex;
-  align-items: center; /* Allinea verticalmente le immagini delle lettere */
-  justify-content: center; /* Allinea orizzontalmente le immagini delle lettere */
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap; /* NOVITÀ: Permette alle parole lunghe di andare a capo */
+  gap: 5px; /* Sostituisce il margin sulle singole lettere per una griglia più pulita */
   margin-bottom: 20px;
+  max-width: 100%; /* Evita l'overflow orizzontale */
 }
 
-/* Stile delle immagini delle lettere */
 .letter-image {
   cursor: pointer;
   width: 60px;
   height: 60px;
-  margin: 2px; /* Spazio tra le lettere */
   font-family: "Supercell-Magic", Arial, sans-serif;
+  transition: transform 0.1s ease-in-out; /* Effetto pressione */
 }
 
-/* Classe per nascondere le lettere */
+/* Effetto quando clicchi o tieni premuto */
+.letter-image:active {
+  transform: scale(0.9);
+}
+
 .hidden-letter {
-  filter: blur(2px); /* Puoi usare qualsiasi altro effetto per nascondere le lettere */
+  filter: brightness(0.5); /* Oscura la carta invece di sfocarla per un look più netto, oppure mantieni blur(2px) */
+}
+
+/* Animazione per quando la lettera viene rivelata */
+.reveal-anim {
+  animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.5); opacity: 0.5; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.word-space {
+  width: 100%; /* NOVITÀ: Forza le parole distinte ad andare su una nuova riga, o usa margin se preferisci tutto su una riga */
+  height: 10px;
 }
 
 /* Stile del bottone "Nuova Parola" */
@@ -51,10 +73,4 @@ h1 {
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
-}
-
-
-/* Stile per lo spazio tra le parole */
-.word-space {
-  margin-right: 50px; /* Spazio tra le parole */
 }
