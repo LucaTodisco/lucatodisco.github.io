@@ -348,11 +348,12 @@ function displayWordImages() {
     
     wordImagesDiv.appendChild(wordContainer);
 
-    if (partIndex < wordParts.length - 1) {
-      const spaceSpan = document.createElement("span");
-      spaceSpan.classList.add("word-space");
-      wordImagesDiv.appendChild(spaceSpan);
-    }
+//
+//    if (partIndex < wordParts.length - 1) {
+//      const spaceSpan = document.createElement("span");
+//      spaceSpan.classList.add("word-space");
+//      wordImagesDiv.appendChild(spaceSpan);
+//    }
   });
 }
 
