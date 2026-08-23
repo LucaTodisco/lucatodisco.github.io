@@ -1,55 +1,74 @@
 /* Font "Supercell-Magic" */
 @font-face {
   font-family: "Supercell-Magic";
-  src: url("font/Supercell-Magic.ttf"); /* Assicurati di correggere il percorso del font se necessario */
-  /* Altri formati del font se lo desideri (ad es. .woff2) */
+  src: url("font/Supercell-Magic.ttf"); 
 }
 
 /* Stile generale della pagina */
 body {
   text-align: center;
   font-family: "Supercell-Magic", Arial, sans-serif;
-  font-size: 40px; /* Imposta la grandezza del testo a 16px (o il valore desiderato) */
   margin: 20px;
+  overflow-x: hidden; 
 }
 
 /* Stile del titolo */
 h1 {
   font-family: "Supercell-Magic", Arial, sans-serif;
-  font-size: 50px; /* Imposta la grandezza del testo a 16px (o il valore desiderato) */
+  font-size: 50px; 
   margin-bottom: 20px;
 }
 
-/* ... mantieni il tuo font e body ... */
-
+/* Contenitore principale di tutte le parole */
 #word-images {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap; /* NOVITÀ: Permette alle parole lunghe di andare a capo */
-  gap: 5px; /* Sostituisce il margin sulle singole lettere per una griglia più pulita */
+  flex-direction: column; /* Incolonna le parole (es: GOBLIN su riga 1, CERBOTTANIERE su riga 2) */
+  align-items: center; 
+  justify-content: center; 
+  gap: 15px; /* Spazio verticale tra le parole */
   margin-bottom: 20px;
-  max-width: 100%; /* Evita l'overflow orizzontale */
+  width: 100%;
 }
 
+/* Contenitori delle singole parole */
+#word-images > div {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap; /* Le lettere non vanno MAI a capo */
+  gap: 2px; /* Spazio uniforme tra le lettere */
+}
+
+/* 
+  IL TRUCCO PER LE LETTERE DELLA STESSA GRANDEZZA:
+  Usiamo le Container Queries o le Viewport Units (vw) per dare
+  a tutte le immagini la stessa identica grandezza reattiva.
+*/
 .letter-image {
   cursor: pointer;
-  width: 60px;
-  height: 60px;
+  /* Larghezza fissa legata alla larghezza dello schermo (vw), uguale per tutte! */
+  /* Questo significa che una lettera occuperà al massimo il 7% dello schermo */
+  width: clamp(15px, 6vw, 60px); 
+  height: clamp(15px, 6vw, 60px); 
+  object-fit: contain; 
   font-family: "Supercell-Magic", Arial, sans-serif;
-  transition: transform 0.1s ease-in-out; /* Effetto pressione */
+  transition: transform 0.1s ease-in-out; 
 }
 
-/* Effetto quando clicchi o tieni premuto */
+/* Stile per i caratteri speciali (come lo spazio '-' in Arco-X) */
+#word-images > div > span {
+  align-self: center;
+  font-size: clamp(15px, 5vw, 40px); /* Allineato in proporzione alle immagini */
+  color: #333;
+}
+
 .letter-image:active {
   transform: scale(0.9);
 }
 
 .hidden-letter {
-  filter: brightness(0.5); /* Oscura la carta invece di sfocarla per un look più netto, oppure mantieni blur(2px) */
+  filter: brightness(0.5); 
 }
 
-/* Animazione per quando la lettera viene rivelata */
 .reveal-anim {
   animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
@@ -59,12 +78,7 @@ h1 {
   100% { transform: scale(1); opacity: 1; }
 }
 
-.word-space {
-  width: 100%; /* NOVITÀ: Forza le parole distinte ad andare su una nuova riga, o usa margin se preferisci tutto su una riga */
-  height: 10px;
-}
-
-/* Stile del bottone "Nuova Parola" */
+/* Bottoni */
 #new-word-button,
 #reveal-button,
 #toggle-language-button {
@@ -73,4 +87,27 @@ h1 {
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 30px; 
+    margin-bottom: 15px;
+  }
+  
+  body {
+    margin: 10px;
+  }
+
+  /* Impila i bottoni */
+  #new-word-button,
+  #reveal-button,
+  #toggle-language-button {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+    font-size: 14px;
+    padding: 12px;
+  }
 }
