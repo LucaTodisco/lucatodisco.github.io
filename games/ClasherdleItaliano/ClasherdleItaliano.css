@@ -1,0 +1,192 @@
+/* Importazione del font personalizzato */
+@font-face {
+    font-family: 'Supercell Magic';
+    src: url('./font/Supercell-Magic.ttf') format('truetype'); 
+}
+
+/* Stili generali - Tema Scuro */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+	box-sizing: border-box;
+}
+
+/* Font personalizzato per titolo e bottoni */
+h1, button {
+    font-family: 'Supercell Magic', Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color: #ffffff;
+}
+
+/* --- STILE PER LA NOTA DI GIOCO --- */
+.game-note {
+    font-size: 0.85em;
+    color: #aaaaaa; /* Grigio chiaro, uguale al placeholder */
+    text-align: center;
+    margin-top: -10px; /* Riduce lo spazio vuoto sotto il titolo */
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+/* Stile per il contenitore del gioco - Tema Scuro */
+#game-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #242424;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+}
+
+/* Stile per il campo di input - Tema Scuro */
+#guess-input {
+    width: calc(100% - 90px);
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #333333;
+    color: #ffffff;
+    border: 1px solid #444444;
+    border-radius: 4px;
+}
+
+#guess-input::placeholder {
+    color: #aaaaaa;
+}
+
+/* Stile per i pulsanti */
+button {
+    padding: 12px 18px;
+    border: none;
+    background-color: #28a745;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 5px;
+    font-size: 0.9em;
+}
+
+/* Stile per il bottone disabilitato - Tema Scuro */
+button:disabled {
+    background-color: #555555;
+    color: #888888;
+    cursor: not-allowed;
+}
+
+/* Stile per il messaggio di aiuto */
+#hint {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* Stile per lo storico dei tentativi */
+.historical-attempts {
+    margin-top: 20px;
+}
+
+/* Stile per il menu a tendina dei suggerimenti - Tema Scuro */
+#suggestions-list {
+    position: absolute;
+    background-color: #2a2a2a;
+    color: #ffffff;
+    border: 1px solid #444444;
+    z-index: 1000;
+    width: calc(100% - 40px);
+    max-width: 500px;
+    border-radius: 4px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    max-height: 150px;
+    overflow-y: auto;
+    display: none; 
+}
+
+#suggestions-list div {
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+#suggestions-list div:hover {
+    background-color: #3d3d3d;
+}
+
+/* --- NUOVI STILI PER LA GRIGLIA STILE WORDLE --- */
+
+@keyframes popIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.storico-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 6px;
+    margin-bottom: 10px;
+    text-align: center;
+    animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.box-attributo {
+    padding: 8px 4px;
+    border-radius: 6px;
+    font-weight: bold;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75em; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    word-break: break-word;
+}
+
+/* NUOVA REGOLA: Stile specifico per il primo box (Nome carta) - Tema Scuro */
+.box-nome-carta {
+    background-color: #333333;
+    color: #ffffff;
+    border: 1px solid #555555;
+}
+
+/* Colori delle risposte (rimangono uguali, ottimi sul nero) */
+.corretto { background-color: #28a745; } /* Verde */
+.sbagliato { background-color: #dc3545; } /* Rosso */
+
+/* --- STILI FOOTER - Tema Scuro --- */
+footer {
+    margin-top: auto; 
+    padding: 20px 10px;
+    text-align: center;
+    color: #888888;
+    font-family: Arial, sans-serif; 
+    font-size: 0.85em;
+    line-height: 1.5;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* --- STILI PER I LINK NEL FOOTER --- */
+footer a,
+footer a:visited,
+footer a:active {
+    color: #28a745; /* Riprende il verde dei bottoni e delle risposte corrette */
+    text-decoration: none; /* Rimuove la sottolineatura di base per un look più pulito */
+    font-weight: bold;
+    transition: opacity 0.2s ease-in-out; /* Rende più fluida l'interazione */
+}
+
+footer a:hover {
+    text-decoration: underline; /* Aggiunge la sottolineatura solo quando ci passi sopra col mouse */
+    opacity: 0.8; /* Abbassa leggermente la luminosità al passaggio del mouse per un effetto click visivo */
+}
