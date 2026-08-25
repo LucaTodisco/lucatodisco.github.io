@@ -3,95 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Content Creator</title>
+    <title>Content Creator - Minigiochi</title>
     <style>
-        /* Reset base per permettere al footer di stare in basso */
+        /* Reset base e layout a tutta altezza per il footer sticky */
         html, body {
             height: 100%;
             margin: 0;
             padding: 0;
         }
 
-        /* Impostazione Flexbox sul body per la gestione della pagina intera */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+            color: #2d3748;
             display: flex;
             flex-direction: column;
         }
 
         /* Contenitore principale che spinge il footer in basso */
         .main-content {
-            flex: 1; /* Occupa tutto lo spazio disponibile tra header e footer */
-            padding: 40px 20px;
+            flex: 1;
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 50px 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         /* Stile del titolo in alto */
         h1 {
             text-align: center;
             margin-bottom: 50px;
-            font-size: 32px;
+            font-size: 38px;
+            color: #1a202c;
+            letter-spacing: -1px;
         }
 
         /* Contenitore dei bottoni con Flexbox */
         .button-container {
             display: flex;
-            justify-content: space-between;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
+            gap: 30px;
+            justify-content: center;
         }
 
         /* Stile base per entrambi i bottoni */
         .btn {
-            display: inline-block;
-            padding: 15px 30px;
-            font-size: 18px;
-            font-weight: bold;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 25px 20px;
             text-decoration: none;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.2s, background-color 0.2s;
+            border-radius: 16px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-align: center;
-            width: 45%; /* Fa sì che occupino uno spazio equilibrato */
+            min-height: 130px;
             box-sizing: border-box;
         }
 
         .btn:hover {
-            transform: scale(1.05);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
         }
 
-        /* Stile bottone Clasherdle (Blu stile Clash) */
+        /* Stile bottone Clasherdle (Blu sfumato) */
         .btn-clasherdle {
-            background-color: #1b88e6;
+            background: linear-gradient(135deg, #1b88e6 0%, #115da1 100%);
             color: white;
         }
-        .btn-clasherdle:hover {
-            background-color: #156ab3;
+
+        /* Stile bottone Card Guessing (Blu sfumato) */
+        .btn-guessing {
+            background: linear-gradient(135deg, #1b88e6 0%, #115da1 100%);
+            color: white;
         }
 
-        /* Stile bottone Card Guessing (Oro/Giallo stile Clash) */
-        .btn-guessing {
-            background-color: #f2b705;
-            color: #222; /* Testo scuro per un buon contrasto */
-        }
-        .btn-guessing:hover {
-            background-color: #d19e04;
+        /* Tipografia interna ai bottoni */
+        .btn-title {
+            font-size: 20px;
+            font-weight: bold;
         }
 
         /* Stile del Footer */
         footer {
-            background-color: #e9ecef;
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(5px);
             text-align: center;
             padding: 20px;
             font-size: 14px;
-            color: #555;
-            border-top: 1px solid #ddd;
+            color: #4a5568;
+            border-top: 1px solid #cbd5e1;
         }
 
         footer p {
-            margin: 5px 0;
+            margin: 6px 0;
             line-height: 1.5;
         }
 
@@ -108,12 +118,11 @@
         /* Ottimizzazione per schermi piccoli (Smartphone) */
         @media (max-width: 600px) {
             .button-container {
-                flex-direction: column; /* Impila i bottoni in verticale */
-                align-items: center;
-                gap: 20px; /* Spazio tra i bottoni impilati */
+                flex-direction: column;
             }
-            .btn {
-                width: 100%; /* Bottoni a larghezza piena su mobile */
+            h1 {
+                font-size: 30px;
+                margin-bottom: 30px;
             }
         }
     </style>
@@ -127,10 +136,14 @@
         <!-- Contenitore dei bottoni -->
         <div class="button-container">
             <!-- Bottone Sinistra: Clasherdle -->
-            <a href="./games/ClasherdleItaliano.html" class="btn btn-clasherdle">Clasherdle Italiano</a>
+            <a href="./games/ClasherdleItaliano.html" class="btn btn-clasherdle">
+                <span class="btn-title">Clasherdle Italiano</span>
+            </a>
 
             <!-- Bottone Destra: Card Guessing -->
-            <a href="./games/CRCardGuessing.html" class="btn btn-guessing">Clash Royale Card Guessing</a>
+            <a href="./games/CRCardGuessing.html" class="btn btn-guessing">
+                <span class="btn-title">Clash Royale Card Guessing</span>
+            </a>
         </div>
     </div>
 
