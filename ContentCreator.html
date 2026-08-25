@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Creator</title>
+    <style>
+        /* Reset base per permettere al footer di stare in basso */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Impostazione Flexbox sul body per la gestione della pagina intera */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Contenitore principale che spinge il footer in basso */
+        .main-content {
+            flex: 1; /* Occupa tutto lo spazio disponibile tra header e footer */
+            padding: 40px 20px;
+        }
+
+        /* Stile del titolo in alto */
+        h1 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 32px;
+        }
+
+        /* Contenitore dei bottoni con Flexbox */
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Stile base per entrambi i bottoni */
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s, background-color 0.2s;
+            text-align: center;
+            width: 45%; /* Fa sì che occupino uno spazio equilibrato */
+            box-sizing: border-box;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Stile bottone Clasherdle (Blu stile Clash) */
+        .btn-clasherdle {
+            background-color: #1b88e6;
+            color: white;
+        }
+        .btn-clasherdle:hover {
+            background-color: #156ab3;
+        }
+
+        /* Stile bottone Card Guessing (Oro/Giallo stile Clash) */
+        .btn-guessing {
+            background-color: #f2b705;
+            color: #222; /* Testo scuro per un buon contrasto */
+        }
+        .btn-guessing:hover {
+            background-color: #d19e04;
+        }
+
+        /* Stile del Footer */
+        footer {
+            background-color: #e9ecef;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            color: #555;
+            border-top: 1px solid #ddd;
+        }
+
+        footer p {
+            margin: 5px 0;
+            line-height: 1.5;
+        }
+
+        footer a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Ottimizzazione per schermi piccoli (Smartphone) */
+        @media (max-width: 600px) {
+            .button-container {
+                flex-direction: column; /* Impila i bottoni in verticale */
+                align-items: center;
+                gap: 20px; /* Spazio tra i bottoni impilati */
+            }
+            .btn {
+                width: 100%; /* Bottoni a larghezza piena su mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Contenitore principale -->
+    <div class="main-content">
+        <h1>I Miei Minigiochi</h1>
+
+        <!-- Contenitore dei bottoni -->
+        <div class="button-container">
+            <!-- Bottone Sinistra: Clasherdle -->
+            <a href="./games/ClasherdleItaliano.html" class="btn btn-clasherdle">Clasherdle Italiano</a>
+
+            <!-- Bottone Destra: Card Guessing -->
+            <a href="./games/CRCardGuessing.html" class="btn btn-guessing">Clash Royale Card Guessing</a>
+        </div>
+    </div>
+
+    <!-- Footer con il testo richiesto -->
+    <footer>
+        <p>Sviluppato da <a href="https://linktr.ee/lucatodisco">Luca Todisco - Trusted Creator Supercell</a></p>
+        <p>Questo materiale non è ufficiale e non è sponsorizzato da Supercell. Per ulteriori informazioni, consultare la <a href="https://supercell.com/en/fan-content-policy/it/">Politica sui Contenuti dei fan di Supercell</a></p>
+        <p>Ultimo aggiornamento: Agosto 2026</p>
+    </footer>
+
+</body>
+</html>
