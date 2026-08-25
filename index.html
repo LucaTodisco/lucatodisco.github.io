@@ -1,8 +1,85 @@
-<html>
+<!DOCTYPE html>
+<html lang="it">
 <head>
-<title>Index</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <style>
+        /* Stili generali della pagina */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        /* Stile del titolo in alto */
+        h1 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 32px;
+        }
+
+        /* Contenitore dei bottoni con Flexbox */
+        .button-container {
+            display: flex;
+            justify-content: space-between; /* Spinge un elemento a sinistra e uno a destra */
+            max-width: 800px; /* Evita che i bottoni siano troppo distanti sui monitor grandi */
+            margin: 0 auto; /* Centra il contenitore nella pagina */
+            padding: 0 20px;
+        }
+
+        /* Stile base per entrambi i bottoni */
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        /* Effetto quando si passa sopra con il mouse */
+        .btn:hover {
+            transform: scale(1.05); /* Ingrandisce leggermente il bottone */
+        }
+
+        /* Colore specifico per il bottone Supercell */
+        .btn-supercell {
+            background-color: #007bff; /* Blu */
+        }
+        .btn-supercell:hover {
+            background-color: #0056b3;
+        }
+
+        /* Colore specifico per il bottone PES */
+        .btn-pes {
+            background-color: #28a745; /* Verde */
+        }
+        .btn-pes:hover {
+            background-color: #1e7e34;
+        }
+    </style>
 </head>
 <body>
-<a href="./campionatopes/html/seriea-stagione2.html">Serie A Stagione 2</a>
+
+    <!-- Titolo in alto -->
+    <h1>I Miei Progetti</h1>
+
+    <!-- Contenitore dei bottoni -->
+    <div class="button-container">
+        
+        <!-- Bottone Sinistra: Supercell -->
+        <a href="LucaTodiscoCC.html" class="btn btn-supercell">Progetti Supercell</a>
+
+        <!-- Bottone Destra: LT PES League ITA -->
+        <a href="./campionatopes/html/seriea-stagione2.html" class="btn btn-pes">Progetti LT PES League ITA</a>
+        
+    </div>
+
 </body>
 </html>
