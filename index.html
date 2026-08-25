@@ -3,83 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luca Todisco</title>
+    <title>Luca Todisco - Progetti</title>
     <style>
-        /* Stili generali della pagina */
+        /* Reset e layout di base */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
-            padding: 40px 20px;
-            background-color: #f8f9fa;
-            color: #333;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center; /* Centra tutto verticalmente */
+            justify-content: center; /* Centra tutto orizzontalmente */
+            background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%); /* Sfondo morbido a gradiente */
+            color: #2d3748;
         }
 
-        /* Stile del titolo in alto */
-        h1 {
+        /* Contenitore principale */
+        .container {
+            width: 100%;
+            max-width: 900px;
+            padding: 40px 20px;
+            box-sizing: border-box;
+        }
+
+        /* Intestazione */
+        .header {
             text-align: center;
             margin-bottom: 50px;
-            font-size: 32px;
         }
 
-        /* Contenitore dei bottoni con Flexbox */
+        .header h1 {
+            font-size: 46px;
+            margin: 0 0 10px 0;
+            color: #1a202c;
+            letter-spacing: -1px;
+        }
+
+        .header p {
+            font-size: 22px;
+            margin: 0;
+            color: #718096;
+            font-weight: 300;
+        }
+
+        /* Contenitore dei bottoni */
         .button-container {
             display: flex;
-            justify-content: space-between; /* Spinge un elemento a sinistra e uno a destra */
-            max-width: 800px; /* Evita che i bottoni siano troppo distanti sui monitor grandi */
-            margin: 0 auto; /* Centra il contenitore nella pagina */
-            padding: 0 20px;
+            gap: 30px; /* Spazio esatto e uniforme tra i bottoni */
+            justify-content: center;
         }
 
-        /* Stile base per entrambi i bottoni */
+        /* Stile dei bottoni */
         .btn {
-            display: inline-block;
-            padding: 15px 30px;
-            font-size: 18px;
-            font-weight: bold;
+            flex: 1; /* Costringe i bottoni ad avere la stessa identica larghezza */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 25px 20px;
             text-decoration: none;
             color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.2s, background-color 0.2s;
+            border-radius: 16px; /* Angoli più morbidi e moderni */
+            box-shadow: 0 10px 20px rgba(0, 123, 255, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            min-height: 130px; /* Garantisce la stessa altezza per entrambi */
+            box-sizing: border-box;
         }
 
-        /* Effetto quando si passa sopra con il mouse */
+        /* Effetto sollevamento al passaggio del mouse */
         .btn:hover {
-            transform: scale(1.05); /* Ingrandisce leggermente il bottone */
+            transform: translateY(-5px); 
+            box-shadow: 0 15px 25px rgba(0, 123, 255, 0.25);
         }
 
-        /* Colore specifico per il bottone Supercell */
+        /* Colori bottoni a gradiente */
         .btn-supercell {
-            background-color: #007bff; /* Blu */
-        }
-        .btn-supercell:hover {
-            background-color: #0056b3;
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
         }
 
-        /* Colore specifico per il bottone PES */
         .btn-pes {
-            background-color: #007bff; /* Blu */
+            background: linear-gradient(135deg, #006ee6 0%, #004494 100%);
         }
-        .btn-pes:hover {
-            background-color: #0056b3;
+
+        /* Tipografia interna ai bottoni */
+        .btn-title {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .btn-subtitle {
+            font-size: 15px;
+            font-weight: normal;
+            opacity: 0.9;
+        }
+
+        /* Responsive per smartphone */
+        @media (max-width: 600px) {
+            .button-container {
+                flex-direction: column;
+            }
+            .header h1 {
+                font-size: 36px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Titolo in alto -->
-    <h1>Luca Todisco</h1>
-    <h1>I miei Progetti</h1>
+    <div class="container">
+        <!-- Intestazione -->
+        <div class="header">
+            <h1>Luca Todisco</h1>
+            <p>I Miei Progetti</p>
+        </div>
 
-    <!-- Contenitore dei bottoni -->
-    <div class="button-container">
-        
-        <!-- Bottone Sinistra: Supercell -->
-        <a href="ContentCreator.html" class="btn btn-supercell">Progetti Luca Todisco Content Creator</br>Trusted Creator Supercell</a>
+        <!-- Contenitore dei bottoni -->
+        <div class="button-container">
+            
+            <!-- Bottone Sinistra: Supercell -->
+            <a href="ContentCreator.html" class="btn btn-supercell">
+                <span class="btn-title">Content Creator</span>
+                <span class="btn-subtitle">Trusted Creator Supercell</span>
+            </a>
 
-        <!-- Bottone Destra: LT PES League ITA -->
-        <a href="./campionatopes/html/seriea-stagione2.html" class="btn btn-pes">Progetti LT PES League ITA</a>
-        
+            <!-- Bottone Destra: LT PES League ITA -->
+            <a href="./campionatopes/html/seriea-stagione2.html" class="btn btn-pes">
+                <span class="btn-title">LT PES League ITA</span>
+            </a>
+            
+        </div>
     </div>
 
 </body>
