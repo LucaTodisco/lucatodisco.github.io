@@ -164,7 +164,8 @@ const italianWords = [
   "Maledizione Goblin",
   "Nihil",
   "Principino",
-  "Ronin"
+  "Ronin",
+  "Gigante Sgherro"
 ];
 
 const englishWords = [
@@ -289,7 +290,8 @@ const englishWords = [
   "Goblin Curse",
   "Void",
   "Little Prince",
-  "Ronin"
+  "Ronin",
+  "Minion Giant"
 ];
 
 let currentLanguage = "italian";
