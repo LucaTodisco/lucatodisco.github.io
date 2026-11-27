@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Black Friday 2026 - Ricompense Creator</title>
+    <title>Black Friday 2026 - Luca Todisco</title>
     <style>
         /* Reset base e layout a tutta altezza per il footer sticky */
         html, body {
@@ -28,8 +28,61 @@
             max-width: 1140px;
             width: 100%;
             margin: 0 auto;
-            padding: 50px 20px;
+            padding: 36px 20px 50px 20px;
             box-sizing: border-box;
+        }
+
+        /* Barra superiore con pulsante Home a sinistra e identità del sito a destra */
+        .top-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 32px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .site-brand {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            text-align: right;
+            gap: 2px;
+        }
+
+        .site-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 0.2px;
+        }
+
+        .site-role {
+            font-size: 13px;
+            color: #94a3b8;
+        }
+
+        .btn-home {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 18px;
+            background-color: #161b24;
+            color: #f8fafc;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .btn-home:hover {
+            background-color: #1f2633;
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
         }
 
         /* Intestazione della pagina */
@@ -252,7 +305,25 @@
         /* Tablet e smartphone: giochi disposti in colonna */
         @media (max-width: 768px) {
             .main-content {
-                padding: 32px 16px;
+                padding: 24px 16px 36px 16px;
+            }
+
+            .top-bar {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+                gap: 12px;
+                margin-bottom: 24px;
+            }
+
+            .site-brand {
+                align-items: center;
+                text-align: center;
+            }
+
+            .btn-home {
+                width: 100%;
+                box-sizing: border-box;
             }
 
             .header {
@@ -302,6 +373,15 @@
 
     <!-- Contenitore principale -->
     <div class="main-content">
+        <!-- Barra superiore con ritorno alla Home a sinistra e nome del creator a destra -->
+        <div class="top-bar">
+            <a href="./index.html" class="btn-home">&larr; Torna alla Home</a>
+            <div class="site-brand">
+                <span class="site-name">Luca Todisco</span>
+                <span class="site-role">Trusted Creator Supercell</span>
+            </div>
+        </div>
+
         <div class="header">
             <h1>Black Friday 2026</h1>
             <p>Scansiona il QR Code per la ricompensa immediata e scopri i premi che potrò mettere in palio!</p>
