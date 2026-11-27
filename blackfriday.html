@@ -91,8 +91,23 @@
             margin-bottom: 45px;
         }
 
+        .header-title-row {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 12px;
+        }
+
+        .darkbg-logo {
+            width: 54px;
+            height: 54px;
+            object-fit: contain;
+            border-radius: 12px;
+        }
+
         .header h1 {
-            margin: 0 0 12px 0;
+            margin: 0;
             font-size: 42px;
             color: #ffffff;
             letter-spacing: -0.5px;
@@ -169,6 +184,11 @@
         .badge-creator {
             background: rgba(148, 163, 184, 0.16);
             color: #cbd5e1;
+        }
+
+        .badge-special {
+            background: rgba(255, 255, 255, 0.16);
+            color: #f8fafc;
         }
 
         .instant-row {
@@ -272,6 +292,58 @@
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
+        /* Slot speciale Brawl Stars Extra */
+        .extra-slot {
+            margin-top: 28px;
+            background-color: #161b24;
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            border-radius: 18px;
+            padding: 24px;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .extra-header {
+            text-align: center;
+        }
+
+        .extra-deadline {
+            margin: 6px 0 0 0;
+            font-size: 14px;
+            font-weight: 600;
+            color: #cbd5e1;
+        }
+
+        .extra-panel {
+            background-color: #0e1117;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 14px;
+            padding: 18px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .extra-row {
+            display: flex;
+            align-items: stretch;
+            justify-content: center;
+            gap: 28px;
+        }
+
+        .extra-panel .qr-box,
+        .extra-panel .instant-reward-box {
+            max-width: 340px;
+        }
+
+        .extra-panel .instant-reward-img {
+            max-width: 240px;
+            height: 150px;
+        }
+
         /* Stile del Footer con link sempre grigi */
         footer {
             background-color: rgba(255, 255, 255, 0.7);
@@ -330,6 +402,11 @@
                 margin-bottom: 28px;
             }
 
+            .darkbg-logo {
+                width: 42px;
+                height: 42px;
+            }
+
             .header h1 {
                 font-size: 32px;
             }
@@ -343,23 +420,33 @@
                 gap: 20px;
             }
 
-            .game-card {
+            .game-card,
+            .extra-slot {
                 padding: 18px;
             }
 
-            .instant-row {
+            .extra-slot {
+                margin-top: 20px;
+            }
+
+            .instant-row,
+            .extra-row {
                 flex-direction: column;
                 align-items: center;
                 gap: 16px;
             }
 
             .qr-box,
-            .instant-reward-box {
+            .instant-reward-box,
+            .extra-panel .qr-box,
+            .extra-panel .instant-reward-box {
                 flex: none;
                 width: 100%;
+                max-width: none;
             }
 
-            .instant-reward-img {
+            .instant-reward-img,
+            .extra-panel .instant-reward-img {
                 max-width: 240px;
             }
 
@@ -383,7 +470,10 @@
         </div>
 
         <div class="header">
-            <h1>Black Friday 2026</h1>
+            <div class="header-title-row">
+                <img src="./img/general/DarkBG.png" alt="Logo DarkBG" class="darkbg-logo">
+                <h1>Black Friday 2026</h1>
+            </div>
             <p>Scansiona il QR Code per la ricompensa immediata e scopri i premi che potrò mettere in palio!</p>
         </div>
 
@@ -505,6 +595,28 @@
                         <p class="creator-desc">Anteprima dei premi extra che potrò distribuire</p>
                     </div>
                     <img src="./img/blackfriday/creator-hay-day.png" alt="Possibili ricompense creator Hay Day" class="creator-preview-img">
+                </div>
+            </div>
+        </div>
+
+        <!-- Slot speciale Brawl Stars Extra -->
+        <div class="extra-slot">
+            <div class="extra-header">
+                <h2 class="game-title">Brawl Stars Extra</h2>
+                <p class="extra-deadline">Disponibile fino alle ore 10:00 del 29 Novembre 2026</p>
+            </div>
+            <div class="extra-panel">
+                <span class="section-badge badge-special">QR Code Speciale</span>
+                <div class="extra-row">
+                    <div class="qr-box">
+                        <span class="media-caption">Scansiona il QR</span>
+                        <img src="./img/blackfriday/qr-brawl-stars-extra.png" alt="QR Code Speciale Brawl Stars Extra" class="qr-img">
+                        <p class="qr-fallback">Non riesci a scansionare? <a href="https://link.brawlstars.com/voucher/d92a092f-0727-4268-8b5b-532a8f2a31a8" target="_blank" rel="noopener noreferrer">Ecco il link</a></p>
+                    </div>
+                    <div class="instant-reward-box">
+                        <span class="media-caption">Ottieni subito</span>
+                        <img src="./img/blackfriday/immediata-brawl-stars-extra.png" alt="Anteprima ricompensa Brawl Stars Extra" class="instant-reward-img">
+                    </div>
                 </div>
             </div>
         </div>
