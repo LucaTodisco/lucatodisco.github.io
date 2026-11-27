@@ -1,8 +1,441 @@
-<html>
-  <head>
-    <title>TEST Black Friday</title>
-  </head>
-  <body> 
-    TEST BLACK Friday
-  </body>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Friday 2026 - Ricompense Creator</title>
+    <style>
+        /* Reset base e layout a tutta altezza per il footer sticky */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #0c0f14;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #0c0f14;
+            color: #f8fafc;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Contenitore principale che spinge il footer in basso */
+        .main-content {
+            flex: 1;
+            max-width: 1140px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 50px 20px;
+            box-sizing: border-box;
+        }
+
+        /* Intestazione della pagina */
+        .header {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .header h1 {
+            margin: 0 0 12px 0;
+            font-size: 42px;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+        }
+
+        .header p {
+            margin: 0;
+            font-size: 18px;
+            color: #94a3b8;
+        }
+
+        /* Griglia per i 4 giochi */
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            align-items: stretch;
+            gap: 28px;
+        }
+
+        /* Singola card del gioco */
+        .game-card {
+            background-color: #161b24;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 18px;
+            padding: 24px;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            transition: transform 0.25s ease, border-color 0.25s ease;
+        }
+
+        .game-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 255, 255, 0.24);
+        }
+
+        .game-title {
+            margin: 0;
+            font-size: 25px;
+            font-weight: bold;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        /* Sezione superiore: QR Code + Ricompensa immediata */
+        .instant-section {
+            background-color: #0e1117;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 14px;
+            padding: 16px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .section-badge {
+            align-self: flex-start;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            margin-bottom: 14px;
+        }
+
+        .badge-instant {
+            background: rgba(226, 232, 240, 0.14);
+            color: #e2e8f0;
+        }
+
+        .badge-creator {
+            background: rgba(148, 163, 184, 0.16);
+            color: #cbd5e1;
+        }
+
+        .instant-row {
+            display: flex;
+            align-items: stretch;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .qr-box,
+        .instant-reward-box {
+            flex: 1 1 0;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            text-align: center;
+        }
+
+        .media-caption {
+            font-size: 13px;
+            font-weight: 600;
+            color: #cbd5e1;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .qr-img {
+            width: 140px;
+            height: 140px;
+            object-fit: contain;
+            border-radius: 10px;
+            background-color: #ffffff;
+            padding: 6px;
+            box-sizing: border-box;
+        }
+
+        .qr-fallback {
+            margin: 10px 0 0 0;
+            font-size: 12px;
+            color: #94a3b8;
+            line-height: 1.4;
+        }
+
+        .qr-fallback a {
+            color: #e2e8f0;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        .qr-fallback a:hover {
+            color: #ffffff;
+        }
+
+        .instant-reward-img {
+            width: 100%;
+            max-width: 190px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 10px;
+            background-color: #1e2532;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* Sezione inferiore: Anteprima possibili ricompense creator */
+        .creator-section {
+            flex: 1;
+            background-color: #0e1117;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 16px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            text-align: center;
+        }
+
+        .creator-header {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .creator-desc {
+            font-size: 13px;
+            color: #94a3b8;
+            margin: 0 0 12px 0;
+            line-height: 1.4;
+        }
+
+        .creator-preview-img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 10px;
+            background-color: #1e2532;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* Stile del Footer con link sempre grigi */
+        footer {
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(5px);
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            color: #4a5568;
+            border-top: 1px solid #cbd5e1;
+        }
+
+        footer p {
+            margin: 6px 0;
+            line-height: 1.5;
+        }
+
+        footer a,
+        footer a:link,
+        footer a:visited {
+            color: #4a5568;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        footer a:hover,
+        footer a:active {
+            color: #1a202c;
+            text-decoration: underline;
+        }
+
+        /* Tablet e smartphone: giochi disposti in colonna */
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 32px 16px;
+            }
+
+            .header {
+                margin-bottom: 28px;
+            }
+
+            .header h1 {
+                font-size: 32px;
+            }
+
+            .header p {
+                font-size: 16px;
+            }
+
+            .games-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .game-card {
+                padding: 18px;
+            }
+
+            .instant-row {
+                flex-direction: column;
+                align-items: center;
+                gap: 16px;
+            }
+
+            .qr-box,
+            .instant-reward-box {
+                flex: none;
+                width: 100%;
+            }
+
+            .instant-reward-img {
+                max-width: 240px;
+            }
+
+            .creator-preview-img {
+                height: 145px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Contenitore principale -->
+    <div class="main-content">
+        <div class="header">
+            <h1>Black Friday 2026</h1>
+            <p>Scansiona il QR Code per la ricompensa immediata e scopri i premi che potrò mettere in palio!</p>
+        </div>
+
+        <div class="games-grid">
+            <!-- 1. CLASH ROYALE -->
+            <div class="game-card">
+                <h2 class="game-title">Clash Royale</h2>
+
+                <!-- Fascia 1: QR + Ricompensa immediata -->
+                <div class="instant-section">
+                    <span class="section-badge badge-instant">Ricompensa Immediata</span>
+                    <div class="instant-row">
+                        <div class="qr-box">
+                            <span class="media-caption">Scansiona il QR</span>
+                            <img src="./img/blackfriday/qr-clash-royale.png" alt="QR Code Clash Royale" class="qr-img">
+                            <p class="qr-fallback">Non riesci a scansionare? <a href="#" target="_blank" rel="noopener noreferrer">Ecco il link</a></p>
+                        </div>
+                        <div class="instant-reward-box">
+                            <span class="media-caption">Ottieni subito</span>
+                            <img src="./img/blackfriday/immediata-clash-royale.png" alt="Ricompensa immediata Clash Royale" class="instant-reward-img">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fascia 2: Possibili ricompense Creator -->
+                <div class="creator-section">
+                    <div class="creator-header">
+                        <span class="section-badge badge-creator">Possibili Ricompense Creator</span>
+                        <p class="creator-desc">Anteprima dei premi extra che potrò distribuire</p>
+                    </div>
+                    <img src="./img/blackfriday/creator-clash-royale.png" alt="Possibili ricompense creator Clash Royale" class="creator-preview-img">
+                </div>
+            </div>
+
+            <!-- 2. BRAWL STARS -->
+            <div class="game-card">
+                <h2 class="game-title">Brawl Stars</h2>
+
+                <!-- Fascia 1: QR + Ricompensa immediata -->
+                <div class="instant-section">
+                    <span class="section-badge badge-instant">Ricompensa Immediata</span>
+                    <div class="instant-row">
+                        <div class="qr-box">
+                            <span class="media-caption">Scansiona il QR</span>
+                            <img src="./img/blackfriday/qr-brawl-stars.png" alt="QR Code Brawl Stars" class="qr-img">
+                            <p class="qr-fallback">Non riesci a scansionare? <a href="#" target="_blank" rel="noopener noreferrer">Ecco il link</a></p>
+                        </div>
+                        <div class="instant-reward-box">
+                            <span class="media-caption">Ottieni subito</span>
+                            <img src="./img/blackfriday/immediata-brawl-stars.png" alt="Ricompensa immediata Brawl Stars" class="instant-reward-img">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fascia 2: Possibili ricompense Creator -->
+                <div class="creator-section">
+                    <div class="creator-header">
+                        <span class="section-badge badge-creator">Possibili Ricompense Creator</span>
+                        <p class="creator-desc">Anteprima dei premi extra che potrò distribuire</p>
+                    </div>
+                    <img src="./img/blackfriday/creator-brawl-stars.png" alt="Possibili ricompense creator Brawl Stars" class="creator-preview-img">
+                </div>
+            </div>
+
+            <!-- 3. CLASH OF CLANS -->
+            <div class="game-card">
+                <h2 class="game-title">Clash of Clans</h2>
+
+                <!-- Fascia 1: QR + Ricompensa immediata -->
+                <div class="instant-section">
+                    <span class="section-badge badge-instant">Ricompensa Immediata</span>
+                    <div class="instant-row">
+                        <div class="qr-box">
+                            <span class="media-caption">Scansiona il QR</span>
+                            <img src="./img/blackfriday/qr-clash-of-clans.png" alt="QR Code Clash of Clans" class="qr-img">
+                            <p class="qr-fallback">Non riesci a scansionare? <a href="#" target="_blank" rel="noopener noreferrer">Ecco il link</a></p>
+                        </div>
+                        <div class="instant-reward-box">
+                            <span class="media-caption">Ottieni subito</span>
+                            <img src="./img/blackfriday/immediata-clash-of-clans.png" alt="Ricompensa immediata Clash of Clans" class="instant-reward-img">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fascia 2: Possibili ricompense Creator -->
+                <div class="creator-section">
+                    <div class="creator-header">
+                        <span class="section-badge badge-creator">Possibili Ricompense Creator</span>
+                        <p class="creator-desc">Anteprima dei premi extra che potrò distribuire</p>
+                    </div>
+                    <img src="./img/blackfriday/creator-clash-of-clans.png" alt="Possibili ricompense creator Clash of Clans" class="creator-preview-img">
+                </div>
+            </div>
+
+            <!-- 4. HAY DAY -->
+            <div class="game-card">
+                <h2 class="game-title">Hay Day</h2>
+
+                <!-- Fascia 1: QR + Ricompensa immediata -->
+                <div class="instant-section">
+                    <span class="section-badge badge-instant">Ricompensa Immediata</span>
+                    <div class="instant-row">
+                        <div class="qr-box">
+                            <span class="media-caption">Scansiona il QR</span>
+                            <img src="./img/blackfriday/qr-hay-day.png" alt="QR Code Hay Day" class="qr-img">
+                            <p class="qr-fallback">Non riesci a scansionare? <a href="#" target="_blank" rel="noopener noreferrer">Ecco il link</a></p>
+                        </div>
+                        <div class="instant-reward-box">
+                            <span class="media-caption">Ottieni subito</span>
+                            <img src="./img/blackfriday/immediata-hay-day.png" alt="Ricompensa immediata Hay Day" class="instant-reward-img">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fascia 2: Possibili ricompense Creator -->
+                <div class="creator-section">
+                    <div class="creator-header">
+                        <span class="section-badge badge-creator">Possibili Ricompense Creator</span>
+                        <p class="creator-desc">Anteprima dei premi extra che potrò distribuire</p>
+                    </div>
+                    <img src="./img/blackfriday/creator-hay-day.png" alt="Possibili ricompense creator Hay Day" class="creator-preview-img">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer con il testo richiesto e link sempre grigi -->
+    <footer>
+        <p>Sviluppato da <a href="https://linktr.ee/lucatodisco">Luca Todisco - Trusted Creator Supercell</a></p>
+        <p>Questo materiale non è ufficiale e non è sponsorizzato da Supercell. Per ulteriori informazioni, consultare la <a href="https://supercell.com/en/fan-content-policy/it/">Politica sui Contenuti dei fan di Supercell</a></p>
+        <p>Ultimo aggiornamento: Novembre 2026</p>
+    </footer>
+
+</body>
 </html>
